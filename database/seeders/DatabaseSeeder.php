@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Folder;
 use App\Models\User;
 use App\Models\Role;
 use Illuminate\Database\Seeder;
@@ -25,17 +24,33 @@ class DatabaseSeeder extends Seeder
         //USUARIOS POR DEFECTO PRECARGADOS EN EL SISTEMA
         User::factory()->create([
             'name' => 'Jolber Chirinos',
-            'email' => 'jrchirinos@gruporuiz.com',
-            'password' => bcrypt(12345678),
+            'phone' => '+3462452488',
             'id_role' => $admin->id,
         ]);
 
         //USUARIOS POR DEFECTO PRECARGADOS EN EL SISTEMA
-        User::factory()->create([
+        $user = User::factory()->create([
             'name' => 'Invitado',
-            'email' => 'invitado@gruporuiz.com',
-            'password' => bcrypt(12345678),
+            'phone' => '+34622130388',
+            'confirm' => 1,
             'id_role' => $inv->id,
+        ]);
+
+        //Inivitado 2 para probar cositas
+        User::factory()->create([
+            'name' => 'Aramando Casas',
+            'phone' => '+34622130139',
+            'id_role' => $inv->id,
+            'id_responsable' => $user->id,
+        ]);
+
+        //Inivitado 3 para probar cositas
+        User::factory()->create([
+            'name' => 'Juanito Alcachofa',
+            'phone' => '+3462452488',
+            'id_role' => $inv->id,
+            'confirm' => 1,
+            'id_responsable' => $user->id,
         ]);
     }
 }

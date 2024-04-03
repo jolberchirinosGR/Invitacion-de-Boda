@@ -1,5 +1,4 @@
 <template>
-    <div v-if="isAdmin"> <!-- Tiene que ser admin para ver este apartado-->
         <!-- Header de la pagina -->
         <div class="content-header">
             <div class="container-fluid">
@@ -56,6 +55,8 @@
                                     <option value="25">25</option>
                                     <option value="50">50</option>
                                     <option value="100">100</option>
+                                    <option value="150">150</option>
+                                    <option value="200">200</option>
                                 </select>
                             </div>
                         </div>
@@ -69,8 +70,18 @@
                         <div class="col-md-2">
                             <!-- Input de búsqueda para número -->
                             <div class="form-group">
-                                <label for="email">Correo:</label>
-                                <input v-model="emailSearch" type="text" class="form-control" placeholder="Buscar por nombre..." >
+                                <label for="phone">Teléfono:</label>
+                                <input type="text" v-model="phoneSearch" class="form-control" placeholder="Buscar por teléfono..." />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>Asistente confirmada</label>
+                                <select v-model="confirmSearch" class="form-control">
+                                    <option value="null">Sin filtrar</option>
+                                    <option value="1">Si</option>
+                                    <option value="0">No</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-2">
@@ -115,9 +126,16 @@
                                                 <i v-else-if="orderByType === 'desc'" class="fas fa-arrow-down"></i>
                                             </span>
                                         </th>
-                                        <th @click="sortBy('email')">
-                                            Correo
-                                            <span v-if="orderByColumn === 'email'">
+                                        <th @click="sortBy('phone')">
+                                            Teléfono
+                                            <span v-if="orderByColumn === 'phone'">
+                                                <i v-if="orderByType === 'asc'" class="fas fa-arrow-up"></i>
+                                                <i v-else-if="orderByType === 'desc'" class="fas fa-arrow-down"></i>
+                                            </span>
+                                        </th>
+                                        <th @click="sortBy('confirm')">
+                                            Asis.
+                                            <span v-if="orderByColumn === 'confirm'">
                                                 <i v-if="orderByType === 'asc'" class="fas fa-arrow-up"></i>
                                                 <i v-else-if="orderByType === 'desc'" class="fas fa-arrow-down"></i>
                                             </span>
@@ -152,11 +170,15 @@
                     </div>
                 </div>
                 <!-- Esta paginacion viene del controlador y formateada por boostrap -->
-                <Bootstrap4Pagination :limit="15" :data="users" @pagination-change-page="getUsers" />
+                <Bootstrap4Pagination :limit="15" :data="users" @pagination-change-page="getUsers"/>
+                <div class="mt-3">
+                    <p>
+                        Mostrando {{ resultsRange() }}
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-
+    
     <!-- Modal -->
     <user-modals ref="userModal"
         @save-user="saveUser"
@@ -172,25 +194,26 @@ import { Bootstrap4Pagination } from 'laravel-vue-pagination';
 import UserListItem from './UserListItem.vue';
 import flatpickr from "flatpickr";
 import UserModals from './UserModals.vue';
-import { useAuthUserStore } from '../../stores/AuthUserStore';
 import { useRouter } from 'vue-router';
 
 export default {
     setup() {
         const router = useRouter();
-        const authUserStore = useAuthUserStore();
 
         const logout = () => {
             axios.post('/logout')
             .then((response) => {
-                authUserStore.user.name = '';
-                router.push('/login');
+                router.push('/');
             });
         };
 
+        const home = () => {
+            router.push('/');
+        };
 
         return {
             logout,
+            home,
         };
     },
   components: {
@@ -204,9 +227,9 @@ export default {
       user: {
         id: '',
         name: '',
-        email: '',
-        password: '',
-        confirm_password: '',
+        phone: '',
+        confirm: '',
+        id_responsable: '',
         id_role: '',
       },
       //Modales y titulos
@@ -218,14 +241,14 @@ export default {
       totalUsers: 0,
       //Filtros para el listado
       nameSearch: null,
-      emailSearch: null,
+      phoneSearch: null,
+      confirmSearch: null,
       dateSearch: null,
       roleSearch: null,
       //Generales
       paginationNumber: 10,
       orderByColumn: '',
       orderByType: 'none', // none, asc, desc
-      isAdmin: null, //Rol que puede tener acceso
     };
   },
   methods: {
@@ -235,7 +258,8 @@ export default {
             .get(`/web/users?page=${page}`, {
                 params: {
                     name: this.nameSearch,
-                    email: this.emailSearch,
+                    phone: this.phoneSearch,
+                    confirm: this.confirmSearch,
                     date: this.dateSearch,
                     role: this.roleSearch,
                     //Generales
@@ -307,13 +331,25 @@ export default {
     //vaciar filtro de fecha
     dateSearchNull(){
         this.dateSearch = null;
-    }
+    },
+
+    //Datos del todal de paginacion
+    resultsRange() {
+        const start = (this.users.current_page - 1) * this.paginationNumber + 1;
+        const end = this.paginationNumber < this.users.total 
+                                                ? this.paginationNumber 
+                                                : this.users.total;
+        return `${start} a ${end} de ${this.users.total} resultados.`;
+    },
   },
   watch: {
     nameSearch: debounce(function () {
       this.getUsers();
     }, 300),
-    emailSearch: debounce(function () {
+    phoneSearch: debounce(function () {
+      this.getUsers();
+    }, 300),
+    confirmSearch: debounce(function () {
       this.getUsers();
     }, 300),
     paginationNumber: debounce(function () {
@@ -332,8 +368,6 @@ export default {
   created() {
     this.getUsers();
     this.getRoles();
-    const user = useAuthUserStore(); //Cargar sesion del usuario logeado
-    this.isAdmin = user.user.role.name === 'Admin' ? true : false; //¿Es Admin o No ?
   },
   mounted() {
     flatpickr(".flatpickr", {

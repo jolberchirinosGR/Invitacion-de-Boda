@@ -21,7 +21,6 @@
 import axios from 'axios';
 import Dropzone from "dropzone";
 import { showSuccessMessage, showErrorMessage, showErrorGroupMessages }  from '../../sweet.js';
-import { useAuthUserStore } from '../../stores/AuthUserStore';
 
 const axiosConfig = {
     headers: {
@@ -37,13 +36,11 @@ export default {
     },
     data() {
         return {
-            authUserStore: null,
             loading: false, // Esta será la variable para controlar la visibilidad del spinner
         };
     },
     mounted() {
         const vm = this; // Almacena la referencia a la instancia de Vue
-        this.authUserStore = useAuthUserStore();
 
         const myDropzone = new Dropzone("#my-dropzone", {
             url: "/web/files",
@@ -73,7 +70,6 @@ export default {
 
             return new Promise((resolve) => {
                 const formData = new FormData();
-                formData.append('email', this.authUserStore.user.email);
                 formData.append('folders', JSON.stringify(this.allSubfolder));
                 formData.append('subFolder', this.subFolder);
 

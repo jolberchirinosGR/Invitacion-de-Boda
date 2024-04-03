@@ -20,9 +20,6 @@ return new class extends Migration
             $table->string('path');
             $table->string('type');
 
-            $table->unsignedBigInteger('updated_by')->nullable();
-            $table->foreign('updated_by')->references('id')->on('users');
-
             $table->unsignedBigInteger('id_folder')->nullable();
             $table->foreign('id_folder')->references('id')->on('folders');
 

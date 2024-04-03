@@ -1,21 +1,16 @@
 //Componentes Base
-import Login from './pages/auth/Login.vue';
+import Home from './pages/Home.vue';
 import FileList from './pages/folders/FolderList.vue';
 import UserList from './pages/users/UserList.vue';
 
 export default [
     {
-        path: '/login',
-        name: 'Login',
-        component: Login,
-    },
-    {
         path: '/',
-        name: 'FileList',
-        component: FileList,
+        name: 'Home',
+        component: Home,
     },
     {
-        path: '/inicio',
+        path: '/fotos',
         name: 'FileList',
         component: FileList,
     },

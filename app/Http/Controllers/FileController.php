@@ -48,13 +48,7 @@ class FileController extends Controller
 
         //Odernar la tabla
         if($sortBy) {
-            if($sortBy === 'updated_by'){
-                $query->with(['user' => function ($query) use ($order) {
-                    $query->orderBy('name', $order);
-                }])->orderBy($sortBy, $order);  
-            }else{
-                $query->orderBy($sortBy, $order);
-            }
+            $query->orderBy($sortBy, $order);
         }else{
             $query->orderBy('id', 'desc');
         }
@@ -79,7 +73,6 @@ class FileController extends Controller
                 $urlFolder = $urlFolder . '/' . $sub;
             } //Obtener URL de carpetas es decir /xxx/asd/asdd
 
-
             $item->storeAs('public'.$urlFolder, $name);
 
             $user = User::where('email', $request->email)->first();
@@ -94,7 +87,6 @@ class FileController extends Controller
                     'type' => $item->getClientOriginalExtension(),
                     'id_folder' => $request->subFolder,
                     'created_at' => now(),
-                    'updated_by' => $user->id,
                 ];
 
                 File::create($file);
@@ -143,7 +135,6 @@ class FileController extends Controller
 
         $data = [
             'name' => $newName,
-            'updated_by' => $request->updated_by,
         ];
 
         $file->update($data); //Actualiza el registro
@@ -186,7 +177,6 @@ class FileController extends Controller
         $data = [
             'name' => $file->name,
             'path' => '/'.$path,
-            'updated_by' => $request->updated_by,
             'id_folder' => $request->id_folder,
         ];
 

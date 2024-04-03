@@ -2,9 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Marck+Script');
 
 body {
-	background-image: url('../background.jpg'); /* Reemplaza 'back.jpg' con la ruta correcta de tu imagen de fondo */
+    background-image: url('../background.jpg'); /* Reemplaza 'back.jpg' con la ruta correcta de tu imagen de fondo */
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed; /* Fondo estático */
     color: #666666;
     font-size: 15px;
     font-family: 'Barlow', sans-serif;

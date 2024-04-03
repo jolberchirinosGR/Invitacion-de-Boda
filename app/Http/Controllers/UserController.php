@@ -68,6 +68,27 @@ class UserController extends Controller
         return User::orderBy('name', 'asc')->get();
     }
 
+    /**
+     * Display the specified resource.
+     */
+    public function index_unpaged_name(Request $request)
+    {
+        $query = User::query();
+
+        //Ubicar los selects con el nombre que viene del request<
+        if ($request->has('name')) {
+            $nameQuery = $request->input('name');
+            $query->where(function ($query) use ($nameQuery) {
+                $query->where('name', 'like', "%{$nameQuery}%");
+            });
+        }
+
+        // Obtener los resultados paginados
+        $result = $query->with(['responsable', 'responsables'])->orderBy('name', 'asc')->get();
+
+        return $result;
+    } 
+
     //Obtener usuario logeado y su rol
     public function profile(Request $request)
     {
@@ -82,9 +103,10 @@ class UserController extends Controller
         // Inicializa un nuevo objeto Server con los datos del UserRequest
         $user = new User();
         $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password =  bcrypt($request->password);
+        $user->phone = $request->phone;
+        $user->confirm = $request->confirm;
         $user->id_role = $request->id_role;
+        $user->id_responsable = $request->id_responsable;
 
         $user->save();
 
@@ -96,13 +118,11 @@ class UserController extends Controller
         $update = User::find($user->id);
 
         $update->name = $request->name;
-        $update->email = $request->email;
-        
-        if ($request->password !== null && $request->password !== '') { //Comprobar contraseña vacia
-            $update->password = bcrypt($request->password);
-        }
-
-        $update->id_role = $request->id_role;
+        $update->phone = $request->phone;
+        $user->confirm = $request->confirm;
+        $user->id_role = $request->id_role;
+        $user->id_responsable = $request->id_responsable;
+                
         $update->save();
 
         return $update;

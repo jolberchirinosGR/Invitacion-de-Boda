@@ -19,18 +19,37 @@
 			       		<label for="name">Nombre</label>
 			       		<input v-model="user.name" type="text" class="form-control" id="name" placeholder="Nombre" name="" autocomplete="off">
                     </div>
+
                     <div class="modal-body">
-                        <label for="email">Correo</label>
-                        <input v-model="user.email" type="email" class="form-control" id="email" placeholder="ejemplo@email.com" name="" autocomplete="off">
+			       		<label for="phone">Teléfono</label>
+			       		<input v-model="user.phone" type="text" class="form-control" id="phone" placeholder="Nombre" name="" autocomplete="off">
                     </div>
+
                     <div class="modal-body">
-                        <label for="password">Contraseña</label>
-                        <input v-model="user.password" type="password" class="form-control" id="passsword" placeholder="**********" name="" autocomplete="off">
+                        <input v-model="user.confirm" type="checkbox">
+                        <label for="checkbox"> Confirmar asistencia</label>
                     </div>
+
                     <div class="modal-body">
-                        <label for="confirm_password">Confirmar Contraseña</label>
-                        <input v-model="user.confirm_password" type="password" class="form-control" id="confirm_passsword" placeholder="**********" name="" autocomplete="off">
+                        <label for="user">Usuario</label>
+                        <div class="input-group">
+                            <input v-model="selectedUser"                       
+                                @focus="inputFocusedUser"
+                                @blur="inputBlurredUser"
+                                @input="getUserNames" 
+                                type="text" 
+                                class="form-control" 
+                                id="user" 
+                                placeholder="Seleccionar Usuario" 
+                                autocomplete="off">
+                        </div>
+                        <ul :class="{'autocomplete-results': true, 'show-results': isInputFocusedUser}" class="autocomplete-results" required>
+                            <li v-for="result in userResults" @click="selectUserName(result)" :key="result.id">
+                                {{ result.name }}
+                            </li>
+                        </ul>
                     </div>
+
                     <div class="modal-body">
                         <label for="userRole">Rol del Usuario</label>
                         <select v-model="user.id_role" class="form-control" id="userRole">
@@ -59,10 +78,10 @@ export default {
       user: {
         id: '',
         name: '',
-        email: '',
-        password: '',
-        confirm_password: '',
+        phone: '',
+        confirm: '',
         id_role: '',
+        id_responsable: '',
       },
       //Modales y titulos
       id: 0,
@@ -72,6 +91,13 @@ export default {
       totalUsers: 0,
       //Filtros para el listado
       paginationNumber: 10,
+
+      //Autocompleted user
+      selectedNameUser: null, // Almacena el nombre seleccionado
+      selectedUserId: null,
+      selectedUser: null,
+      isInputFocusedUser: false,
+      userResults: [],
     };
   },
   methods: {
@@ -79,10 +105,10 @@ export default {
         clearForm() {
             this.user = {
                 name: '',
-                email: '',
-                password: '',
-                confirm_password: '',
+                phone: '',
+                confirm: '',
                 id_role: '',
+                id_responsable: '',
             };
             this.update = false;
         },
@@ -93,17 +119,19 @@ export default {
                 this.update = false;
 
                 this.user.name = '';
-                this.user.email = '';
-                this.user.password = '';
-                this.user.confirm_password = '';
+                this.user.phone = '';
+                this.user.confirm = '';
+                this.user.id_responsable = '';
                 this.user.id_role = '';
+                this.selectedUserId= '';
             }else{
                 this.update = true;
 
                 this.id = user.id ?? null;
                 this.user.id = user.id ?? null;
                 this.user.name = user.name ?? null;
-                this.user.email = user.email ?? null;
+                this.user.phone = user.phone ?? null;
+                this.user.id_responsable = user.id_responsable ?? null;
                 this.user.id_role = user.id_role ?? null;
             }
 
@@ -165,64 +193,170 @@ export default {
 
     //Funcion para guardar
         saveUser(){
-            if (this.user.password !== this.user.confirm_password) {
-                showErrorMessage('¡La contraseña y su confirmación no coinciden!');
-                return;
-            }else{
-                const data = {
-                    id: this.user.id,
-                    name: this.user.name,
-                    email: this.user.email,
-                    password: this.user.password,
-                    id_role: this.user.id_role, // Enviar el ID del rol seleccionado
-                };
+            const data = {
+                name: this.user.name,
+                phone: this.user.phone,
+                confirm: this.user.confirm,
+                id_role: this.user.id_role, // Enviar el ID del rol seleccionado
+                id_responsable: this.selectedUserId, // Enviar el ID del invitado seleccionado
+            };
 
-                axios.post('/web/users', data).then(response => {
-                    this.closeFormModal();               
-                    showSuccessMessage('¡Usuario creado exitosamente!');
-                    this.$emit('save-user');
-                }).catch(error => {
-                    const errors = error.response.data.errors;
+            axios.post('/web/users', data).then(response => {
+                this.closeFormModal();               
+                showSuccessMessage('¡Usuario creado exitosamente!');
+                this.$emit('save-user');
+            }).catch(error => {
+                const errors = error.response.data.errors;
 
-                    showErrorGroupMessages(errors)
-                });
-            }
+                showErrorGroupMessages(errors)
+            });
         },
 
     //Funcion para actualizar
         updateUser() {
             const userId = this.id;
-            let passwordConfirm =  true;
             const data = {
                 id: userId,
                 name: this.user.name,
-                email: this.user.email,
+                phone: this.user.phone,
+                confirm: this.user.confirm,
                 id_role: this.user.id_role, // Enviar el ID del rol seleccionado
+                id_responsable: this.selectedUserId, // Enviar el ID del invitado seleccionado
             };
 
-            if(this.passsword !== '' && this.confirm_password !== ''){
-                this.user.password == this.user.confirm_password
-                    ? data.password = this.user.password
-                    : passwordConfirm = false;
-            };
+            axios.put(`/web/users/${userId}`, data).then(response => {
+                this.closeFormModal();               
+                showSuccessMessage('¡Usuario actualizado exitosamente!');
+                this.$emit('update-user');
+            })
+            .catch(error => {
+                const errors = error.response.data.errors;
+                showErrorGroupMessages(errors)
+            });
+        },
 
-            if (passwordConfirm) {
-                axios.put(`/web/users/${userId}`, data).then(response => {
-                    this.closeFormModal();               
-                    showSuccessMessage('¡Usuario actualizado exitosamente!');
-                    this.$emit('update-user');
-                })
-                .catch(error => {
-                    const errors = error.response.data.errors;
-                    showErrorGroupMessages(errors)
-                });
+    //Selecionnar otro usuario
+        selectUserName(user) {
+            if (user === null) {
+                this.selectedNameUser = null;
+                this.selectedUserId = null; 
+                this.selectedUser = null;
             }else{
-                showErrorMessage('¡Contraseñas no coinciden!');
+                this.selectedUser = user.name; // Muestra el nombre del servidor en el input
+                this.selectedUserId = user.id; // Guarda el ID de la empresa
+                this.userResults = []; // Limpia los resultados
+            }
+        },
+    //Obtener todos los nombres del personal
+        getUserNames() {
+            axios.get('/web/users_unpaged_name/', {
+                params: {
+                    name: this.selectedUser,
+                },
+            })
+            .then(response => {
+                this.userResults = response.data;
+            })
+            .catch(error => {
+                console.error('Error obtaining equipment_company', error);
+            });
+        },
+        inputFocusedUser() { //Motrar lsitado si esta selccionado el select
+            this.isInputFocusedUser = true;
+        },
+        inputBlurredUser() { //NO Motrar lsitado si NO esta selccionado el select
+            // Retraso para permitir que ocurra la selección del resultado
+            setTimeout(() => {
+            this.isInputFocusedUser = false;
+            }, 200);
+        },
+
+        //Comprobar si hay o no servidor 
+        //Al abrir modal ¿Hay o no servidor?
+        modalSearchUser(servidor){
+            if (servidor) { 
+                const server = this.getServerData(servidor);
+                this.selectServer(server);
+            }else{
+                this.selectedServer = '';
+                this.fetchServers();
+            }
+        },
+
+        //Obtener el nombre de la Empresa
+        getUserData(userId){
+            if (!userId) {
+                return;
+            }
+            const user = this.userResults.find(server => server.id === userId);
+
+            if (user) {
+                return user;
+            } else {
+                return 'Sin servidor';
             }
         },
   },
   created() {
     this.getRoles();
+    this.getUserNames();
   },
 };
 </script>
+
+<style scoped>
+    .autocomplete-results {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        border: 1px solid #ccc;;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        color: #454d55;
+        max-height: 200px; /* ajusta la altura máxima según tu preferencia */
+        overflow-y: auto; /* agregar desplazamiento vertical si la lista es larga */
+    }
+
+    .autocomplete-results li {
+        padding: 8px 12px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .autocomplete-results li:hover {
+        background-color: #ccc; /* Color de fondo al pasar el mouse sobre una opción */
+    }
+    
+    .autocomplete-results li {
+        /* Estilos anteriores */
+        border-bottom: 1px solid #eee; /* Línea separadora entre opciones */
+    }
+
+    .autocomplete-results li:last-child {
+        border-bottom: none; /* Eliminar la línea separadora de la última opción */
+    }
+
+    .autocomplete-results li:hover {
+        background-color: #f0f0f0; /* Color de fondo al pasar el mouse sobre una opción */
+    }
+
+    .autocomplete-results {
+        display: none;
+        position: absolute;
+        z-index: 999;
+        background-color: #fff;
+        border: 1px solid #ccc;
+    /* Otros estilos que desees agregar */
+    }
+
+    .show-results {
+        display: block;
+    }
+
+    /* Nuevo estilo para ajustar el ancho */
+    .autocomplete-results.show-results {
+        width: calc(94% - 2px); /* Ten en cuenta el borde */
+        margin-top: 2px; /* Ajuste para separación */
+    }
+</style>

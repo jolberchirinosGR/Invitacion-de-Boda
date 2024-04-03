@@ -91,7 +91,6 @@ class FolderController extends Controller
 
         $data = [
             'name' => $request->name,
-            'updated_by' => $request->updated_by,
         ];
 
         $folder->update($data); //Actualiza el registro

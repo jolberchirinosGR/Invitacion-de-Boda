@@ -26,12 +26,7 @@
                       </div>
                       
                       <!-- Gif de copitas -->
-                      <img style="width: 50%;" src="extras/cups.gif">
-                      <br>
-                      <br>
-        
-                      <!--  Día del evento -->
-                      <img class="img-fluid" src="extras/fecha.svg" alt="">
+                      <img style="width: 50%;" src="extras/cups.gif">        
                     </div>
                   </div>
                 </div>
@@ -39,8 +34,21 @@
             </div>
           </div>
   
+          <!--  Día del evento -->
+          <img class="img-fluid" src="extras/fecha.svg" alt="">
+
+          <br>
+          <br>
+          <br>
+
           <!--  Cuanto regresiva -->
           <div id="countdown" class="text-center">
+            <h2 style="font-size: 45px; margin-top: 20px;">
+              <strong>   
+                ¡Faltan tan solo!
+              </strong>
+            </h2>
+
             <div class="countdown-box">
               <div class="countdown-item">
                 <span class="countdown-number">{{ days }}</span>
@@ -59,8 +67,13 @@
                 <span class="countdown-label">Segundos</span>
               </div>
             </div>
+
+            <br>
+
+            <p style="font-size: 20px; color: gray; padding: 10px;"> Nuestro evento comenzará puntualmente a las <strong>5:30 p.m.</strong> Queremos que disfrutes cada momento con nosotros, desde el inicio hasta el final a las  <strong>12:00 a.m.</strong> 
+              Por favor, asegúrate de tomar las precauciones necesarias para garantizar un regreso seguro a casa después de la celebración..</p>
           </div>
-  
+          <!-- Fin de la cuenta regresiva y recalcar -->
           <!-- Start Gallery -->
           <div id="gallery" class="gallery-box">
             <div class="container-fluid">
@@ -205,8 +218,8 @@
         
                     <p>Tienes una paleta de colores para escoger tu mejor outfit, pero hemos excluido el color <strong>"Blanco"</strong> ya que es reservado para la novia.</p>
         
-                    <i class="fas fa-circle" style="color: white; font-size: 50px; border: 1px solid black; border-radius: 50px;"></i>
-                    <i class="fas fa-ban" style="color: red; font-size: 50px;"></i>
+                    <i class="fas fa-circle" style="color: white; font-size: 40px; border: 1px solid black; border-radius: 50px;"></i>
+                    <i class="fas fa-ban" style="color: red; font-size: 40px;"></i>
                   </div>
                 </div>
                 <!-- Fin Vestimenta del evento -->
@@ -226,9 +239,9 @@
                     <p>
                       <strong>¡Prepárense para una noche Épica!</strong>
                       Este evento está pensado para adultos, por lo que les pedimos amablemente que hagan los arreglos necesarios para dejar a los niños en casa. Queremos que todos disfruten de esta noche especial sin ninguna restricción. 
-                      <i class="fas fa-baby" style="font-size: 20px;"></i>       
-                      <i class="fas fa-home" style="font-size: 20px;"></i>
                     </p>
+                    <i class="fas fa-baby" style="font-size: 40px;"></i>       
+                    <i class="fas fa-home" style="font-size: 40px;"></i>
                   </div>
                 </div>
                 <!-- Fin Niños en el evento -->
@@ -247,8 +260,8 @@
                     </h2>
                     <p>Estamos encantados de compartir un día lleno de amor en nuestra boda contigo. Queremos enfocarnos en el placer de tu compañía y los preciosos recuerdos que crearemos juntos. Por ello, te pedimos gentilmente que en lugar de regalos, nos acompañes con tu calidez y alegría.</p>
                     <p>Valoramos tu presencia más que cualquier obsequio material. Si deseas expresar tu cariño de alguna manera, sugerimos una carta, una foto o cualquier otro detalle que represente nuestra amistad y la conexión que compartimos.</p>
-                    <i class="fas fa-gifts" style="font-size: 50px;"></i>
-                    <i class="fas fa-ban" style="color: red; font-size: 50px;"></i>
+                    <i class="fas fa-gifts" style="font-size: 40px;"></i>
+                    <i class="fas fa-ban" style="color: red; font-size: 40px;"></i>
                   </div>
                 </div>
                 <!-- Fin de regalos -->
@@ -258,51 +271,97 @@
           </div>
           <!-- Fin dia del evento -->
   
-            <!-- Asistencia -->
-          <div id="contact" class="contact-box">
+
+          <!-- Inicio de la asistencia -->
+          <div id="gallery" class="gallery-box">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="title-box">
+                      <h2 style="font-size: 45px;">
+                        <img class="img-fluid rounded" style="width: 14%;" src="extras/calendar.png" alt="" />
+              
+                        <strong>          
+                          Asistencia
+                        </strong>
+                      </h2>
+                        <p style="font-size: 20px; color: gray;"> Este momento es invaluable para nosotros y queremos celebrarlo de manera significativa, aunque nos encantaría tenerlos a todos aquí, circunstancias nos llevan a una boda más íntima. </p>
+                        <p style="font-size: 20px; color: gray;"> Al hacer clic abajo, nuestros invitados confirmarán su asistencia. Estamos emocionados de compartir este día especial de forma personal.</p>
+                        <br>
+                        <p style="font-size: 20px; color: gray;"> Apreciamos su comprensión y apoyo. Esta decisión no disminuye su importancia en nuestras vidas.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12" style="margin-top: 20px;">
+                <div class="submit-button text-center">
+                  <button @click="openModal" class="btn btn-secondary" style="background-color: goldenrod; border: none; border-radius: 50px; font-size: 20px;">
+                    <strong>
+                      <i class="fas fa-check"></i>
+                      Confirmar asistencia
+                      <i class="fas fa-check"></i>
+                    </strong>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <!-- End Gallery -->
+
+
+          <!-- Contacto con los novios -->
+          <div id="contact" class="contact-box" style="margin-top: 20px;">
               <div class="container">
                   <div class="row">
                       <div class="col-lg-12">
                           <div class="title-box">
-                  <h2 style="font-size: 45px;">
-                    <img class="img-fluid rounded" style="width: 20%;" src="extras/calendar.png" alt="" />
-                    <strong>
-                      Asistencia
-                    </strong>
-                  </h2>
+                            <h2 style="font-size: 45px;">
+                              <strong>
+                                ¡Esperamos poder contar contigo!
+                              </strong>
+                            </h2>
                           </div>
                       </div>
                   </div>
-      
+
                   <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12">
                       <div class="row align-items-center about-main-info">
-                        <div class="col-lg-8 col-md-6 col-sm-12">
-                          <strong class="text-center">
-                            <p>Este momento es invaluable para nosotros y queremos celebrarlo de manera significativa, honrando a cada uno de ustedes.</p>
-                            <p>Aunque nos encantaría tenerlos a todos aquí, circunstancias nos llevan a una boda más íntima. Su presencia significa el mundo para nosotros.</p>
-                            <p>Al hacer clic abajo, nuestros invitados confirmarán su asistencia. Estamos emocionados de compartir este día especial de forma personal.</p>
-                            <br>
-                            <p>Apreciamos su comprensión y apoyo. Esta decisión no disminuye su importancia en nuestras vidas.</p>
-                          </strong>
+                        <div class="col-lg-8 col-md-6 col-sm-12 text-center">
+                            <p> ¿No apareces en el listado de invitados?, ¿Tienes alguna inquietud?, ¿Duda? o Sugerencia. Aqui tienes los contactos para que te puedas comunicar con nosotros.</p>
+
+                            <div class="col-md-12" style="margin-bottom: 20px;">
+                              <div class="submit-button text-center">
+                                <a href="https://wa.me/34622130388" class="btn" style="border: 2px solid goldenrod; border-radius: 50px; font-size: 20px;">
+                                  <strong>
+                                    <i class="fas fa-mobile-alt"></i>                                
+                                    Jolber Chirinos
+                                    <img class="img-fluid" src="extras/novio.png" style="width: 10%;"/>
+                                  </strong>
+                                </a>
+                              </div>
+                            </div>
+
+                            <div class="col-md-12" style="margin-bottom: 20px;">
+                              <div class="submit-button text-center">
+                                <a href="https://wa.me/584245827911" class="btn" style="border: 2px solid goldenrod; border-radius: 50px; font-size: 20px;">
+                                  <strong>
+                                    <i class="fas fa-mobile-alt"></i>                                
+                                    Javianny Rojas
+                                    <img class="img-fluid" src="extras/novia.png" style="width: 10%;"/>
+                                  </strong>
+                                </a>
+                              </div>
+                            </div>
+
                         </div>
                       </div>
                     </div>
                   </div>
-            
-                  <div class="col-md-12" style="margin-bottom: 20px;">
-                    <div class="submit-button text-center">
-                      <button @click="openModal" class="btn btn-secondary" style="background-color: goldenrod; border: none; border-radius: 50px; font-size: 20px;">
-                        <strong>
-                          Confirmar asistencia
-                          <i class="fas fa-check"></i>
-                        </strong>
-                      </button>
-                    </div>
-                  </div>
               </div>
           </div>
-          <!-- End Contact -->
+          <!-- Fin Asistencia -->
     
           <!-- Start Footer -->
           <footer class="footer-box">
@@ -316,103 +375,29 @@
           </footer>
           <!-- End Footer -->
 
-      <!-- Modal de edicion y creacion de Carpeta -->
-      <div class="modal fade" id="folderModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true" style="margin-top: 15%;">
-          <div class="modal-dialog d-flex align-items-center" role="document">
-              <div class="modal-content">
-                  <div class="container py-5 h-100">
-                      <div class="d-flex justify-content-center align-items-center h-100">
-                          <div class="user_card">
-                              <div class="d-flex justify-content-center">
-                                  <div class="brand_logo_container">
-                                      <img src="logo.png" class="brand_logo" alt="Logo">
-                                  </div>
-                              </div>
-                              <div class="d-flex justify-content-center form_container">
-                                  <form @submit.prevent="handleSubmit">
-                                      <h5 class="login-box-msg"><strong>Inicia con tus credenciales...</strong></h5>
-                                      <div v-if="errorMessage" class="alert alert-danger" role="alert">
-                                          {{ errorMessage }}
-                                      </div>
-                                      <div class="input-group mb-3">
-                                          <div class="input-group-append">
-                                              <span class="input-group-text"><i class="fas fa-at"></i></span>
-                                          </div>
-                                          <input v-model="form.email" type="email" class="form-control" placeholder="Correo">
-                                      </div>
-                                      <div class="input-group mb-3">
-                                          <div class="input-group-append">
-                                              <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                                          </div>
-                                          <input v-model="form.password" type="password" class="form-control" placeholder="*********">
-                                      </div>
-                                      <div class="text-center pt-1 mb-5 pb-1">
-                                          <button type="submit" class="btn login_btn" :disabled="loading">
-                                              <div v-if="loading" class="spinner-border spinner-border-sm" role="status">
-                                                  <span class="sr-only">Cargando...</span>
-                                              </div>
-                                              <span v-else class="fas fa-sign-in-alt"></span> Iniciar
-                                          </button>
-
-                                          <br>
-                                          <br>
-
-                                          <button class="btn btn-secondary" data-dismiss="modal">
-                                              <i class="fas fa-times"></i> Salir
-                                          </button>
-                                      </div>
-                                  </form>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-
+        <!-- Modal -->
+        <attendance-modals ref="attendanceModal"/>
 </template>
 
 <script>
 import axios from 'axios';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { useAuthUserStore } from '../../stores/AuthUserStore';
-import { useToastr } from '../../toastr.js';
+import AttendanceModals from './attendance/AttendanceModals.vue';
 
 export default {
+    components: {
+      AttendanceModals,
+    },
     setup() {
-        const toastr = useToastr();
-        const authUserStore = useAuthUserStore();
         const router = useRouter();
-        const form = ref({
-            email: '',
-            password: '',
-        });
 
-        const loading = ref(false);
-        const errorMessage = ref('');
-
-        const handleSubmit = () => {
-            loading.value = true;
-            errorMessage.value = '';
-            axios.post('/login', form.value)
-                .then(() => {
-                    $('#folderModal').modal('hide');
-                    router.push('/');
-                })
-                .catch((error) => {
-                    errorMessage.value = error.response.data.message;
-                })
-                .finally(() => {
-                    loading.value = false;
-                });
+        const uploadImages = () => {
+            router.push('/fotos');
         };
 
         return {
-            form,
-            loading,
-            errorMessage,
-            handleSubmit,
+            uploadImages,
         };
     },
     data() {
@@ -453,20 +438,19 @@ export default {
             this.minutes = 0;
           }
       },
-      openModal(){
-        console.log('confirmar mi asistencia');
-      },
-      uploadImages(){
-        $('#folderModal').modal('show');
 
-      }
+      // Método para abrir el modal de asistencia
+      openModal() {
+        this.$refs.attendanceModal.openFormModal(null);
+      },
+
     }
 }
 </script>
 
 <style>
-    @import url(../../../../public/extras/responsive.css);
-    @import url(../../../../public/extras/style.css);
+    @import url(../../../public/extras/responsive.css);
+    @import url(../../../public/extras/style.css);
 
     #countdown {
         padding: 0; /* Reducir el padding para que los elementos se ajusten mejor */

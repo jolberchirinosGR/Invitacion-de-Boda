@@ -23,11 +23,9 @@
                       
                       <div class="row d-flex justify-content-center">
                           <div class="col-md-6">
-                              <label v-if=isAdmin for="name">Cambiar Nombre</label>
-                              <label v-else for="name">Nombre</label>
+                              <label for="name">Nombre</label>
   
-                              <input v-if=isAdmin v-model="name" type="text" class="form-control" id="name" placeholder="Nombre" name="" autocomplete="off">
-                              <div v-else class="input-group mb-3">
+                              <div class="input-group mb-3">
                                   <div class="input-group-append">
                                       <span class="input-group-text"><i class="fas fa-file-signature"></i></span>
                                   </div>
@@ -77,14 +75,13 @@
                       <span><strong> Ultima actualización: </strong></span>
                       <div class="row">
                           <div class="col-md-12">
-                            <span>Actualizado por {{ file.updated_by }} a las {{ file.updated_at }}</span>
+                            <span>Actualizado a las {{ file.updated_at }}</span>
                           </div>
                       </div>
                   </div>
                   <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i> Cancelar</button>
                       <!-- <button v-if="isAdmin" @click="openMoveFileModal()" type="submit" class="btn btn-success"><i class="fas fas fa-project-diagram"></i> Mover</button> -->
-                      <button v-if="isAdmin" @click="showDeleteConfirmation()" type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Eliminar</button>
                       <!-- <button v-if="isAdmin" @click="updateFile()" type="submit" class="btn btn-info"><i class="fas fa-edit"></i> Renombrar</button> -->
                   </div>
               </div>
@@ -151,13 +148,11 @@
           type: '',
           created_at: '',
           updated_at: '',
-          updated_by: '',
         },
         name: '',
         usersAll: [],
         foldersAll: [],
         authUserStore: null,
-        isAdmin: null, // ¿ Es admin ?
         folderId: null, // Carpeta a la que se puede mover el archivo
       };
     },
@@ -172,7 +167,6 @@
                   type: '',
                   created_at: '',
                   updated_at: '',
-                  updated_by: '',
               };
               this.authUserStore = null
           },
@@ -188,7 +182,6 @@
               this.file.type = file.type ?? null;
               this.file.created_at = this.getDate(file.created_at) ?? null;
               this.file.updated_at = this.getDateWithHour(file.updated_at) ?? null;
-              this.file.updated_by = this.getUserName(file.updated_by) ?? null;
               
               $('#fileModal').modal('show');
           },
@@ -218,7 +211,6 @@
                   id: this.file.id,
                   name: this.name,
                   type: this.file.type,
-                  updated_by: auth.user.id,
               };
   
               axios.put(`/web/files/${data.id}`, data).then(response => {
@@ -425,7 +417,6 @@
               const data = {
                   id: this.file.id,
                   id_folder: this.folderId,
-                  updated_by: auth.user.id,
               };
   
               axios.post(`/web/move_file/`, data).then(response => {
@@ -442,8 +433,6 @@
     created() {
       this.getUsers();
       this.clearForm();
-      this.authUserStore = useAuthUserStore();
-      this.isAdmin = this.authUserStore.user.role.name === 'Admin' ? true : false; //¿Es Admin o No ?
     },
   };
   </script>

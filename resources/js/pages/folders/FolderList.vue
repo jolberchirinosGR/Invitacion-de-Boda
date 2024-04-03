@@ -154,10 +154,9 @@ export default {
             axios.post('/logout')
             .then((response) => {
                 authUserStore.user.name = '';
-                router.push('/login');
+                router.push('/');
             });
         };
-
 
         return {
             logout,
@@ -179,7 +178,7 @@ export default {
         id_folder: '',
       },
       // Obtener y filtrar el listado
-      title: 'Gestionar Archivos',
+      title: 'Gestión de fotos',
       folders: [], // Guardar todas las carpetas
       files: [], // Guardar todos los archivos
       subFolder: null, // Alamacena el ID de las subcarpeta

@@ -20,6 +20,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'confirm',
+        'phone',
+        'id_role',
+        'id_responsable',
     ];
 
     /**
@@ -45,4 +49,16 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class, 'id_role', 'id');
     }
+
+    public function responsable()
+    {
+        return $this->belongsTo(User::class, 'id_responsable', 'id');
+    }
+
+    public function responsables()
+    {
+        return $this->hasMany(User::class, 'id_responsable');
+    }
+
+
 }

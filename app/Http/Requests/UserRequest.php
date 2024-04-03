@@ -25,19 +25,11 @@ class UserRequest extends FormRequest
     {
         $rules = [
             'name' => 'required|max:190',
+            'phone' => 'required|max:250',
+            'confirm' => 'nullable|boolean',
             'id_role' => 'required|exists:roles,id',
+            'id_responsable' => 'nullable|exists:users,id',
         ];
-    
-        // Si es una solicitud de creación, se requiere la contraseña
-        if ($this->isMethod('post')) {
-            $rules['password'] = 'required|min:8';
-            $rules['email'] = 'required|unique:users,email';
-        }
-
-        // Si es una solicitud de creación, se requiere la contraseña
-        if ($this->isMethod('put')) {
-            $rules['email'] = 'required|unique:users,email,'.$this->route('user')->id ?? null;
-        }
     
         return $rules;
     }
