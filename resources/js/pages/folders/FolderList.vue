@@ -4,13 +4,23 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">{{title}}</h1>
+                    <h1 class="m-0"> <strong>{{title}}</strong> </h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item">
                             <button v-if="subFolder" @click="ascendDirectories(null)" type="button" class="btn btn-link">Archivo</button>
-                            <span v-else>Archivo</span>
+                            <span v-else>
+                                {{subTitle}}
+                                <br>
+                                {{subTitle2}}
+                                <br>
+                                {{subTitle3}}
+                                <br>
+                                {{subTitle4}}
+                                <br>
+                                <strong>{{subTitle5}}</strong>
+                            </span>
                         </li>
                         <li class="breadcrumb-item" v-for="(sub, index) in allSubfolder">
                             <button @click="ascendDirectories(sub)" type="button" class="btn btn-link">{{ sub.name }}</button>
@@ -178,7 +188,12 @@ export default {
         id_folder: '',
       },
       // Obtener y filtrar el listado
-      title: 'Gestión de fotos',
+      title: 'Aqui podras compartir tus fotos con nosotros',
+      subTitle: '* Crea una nueva carpeta con tu nombre.',
+      subTitle2: '* Abre esa nueva carpeta.',
+      subTitle3: '* Click al boton subir archivos.',
+      subTitle4: '* Sube tus imagenes y click al boton cargar archivos',
+      subTitle5: 'PD: Recomendamos no subir tantas imagenes para evitar el peso excesivo en el servidor',
       folders: [], // Guardar todas las carpetas
       files: [], // Guardar todos los archivos
       subFolder: null, // Alamacena el ID de las subcarpeta

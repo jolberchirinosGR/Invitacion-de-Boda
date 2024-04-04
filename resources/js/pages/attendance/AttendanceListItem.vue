@@ -1,10 +1,17 @@
 <template>
     <tr>
-      <td>{{ responsable.name }}</td>
-      <td> <i :class="getIconConfirm(responsable.confirm)" :style="getIconColor(responsable.confirm)"></i> </td>      
+      <td>
+        <i class="fas fa-star" style="color: goldenrod;" v-if="isMain(user)"></i>      
+      </td>
+      <td>
+        {{ user.name }}
+      </td>
+      <td> 
+        <i :class="getIconConfirm(user.confirm)" :style="getIconColor(user.confirm)"></i> 
+      </td>      
       <td>
         <div class="d-flex justify-content-center">
-          <button type="button" class="btn btn-secondary mx-2">
+          <button  @click="changeStatus(user)" type="button" class="btn btn-secondary mx-2">
             <i class="fas fa-sync mr-1"></i>
           </button>
         </div>
@@ -13,12 +20,14 @@
 </template>
   
 <script>
+import { showSuccessMessage, showErrorMessage, showErrorGroupMessages, useSweetAlert }  from '../../sweet.js';
+
   export default {
-    emits: ['open-update-user', 'open-delete-user'], //Eventos que se generan en este componente
+    emits: ['change-status'], //Eventos que se generan en este componente
     components: {
     },
     props: {
-      responsable: Object,
+      user: Object,
     },
     data() {
       return {
@@ -29,7 +38,7 @@
     created() {
     },
     watch: {
-      responsable(newUser) {
+      user(newUser) {
         this.userData = newUser;
       },
     },
@@ -41,7 +50,30 @@
 
         getIconColor(confirm){
           return confirm ? "color: green; font-size: 20px;" : "color:red; font-size: 20px;" ;
-        }
+        },
+
+        isMain(){
+          if (this.user.responsables) {
+            return this.user.responsables.length > 0;
+          }else{
+            return false;
+          }
+        },
+
+        //Funcion para actualizar
+        changeStatus(user) {
+            axios.get(`/web/users/change_status/${user.id}`).then(response => {
+              user.confirm = user.confirm === 0 ? 1 : 0;
+              user.confirm 
+              ? showSuccessMessage(`¡${this.user.name} Ha confirmado su asistencia al evento!`)
+              : showErrorMessage(`¡${this.user.name} Ha confirmado no poder asistir al evento!`);
+;
+            })
+            .catch(error => {
+              const errors = error.response.data.errors;
+              showErrorGroupMessages(errors)
+            });
+        },
     },
   };
 </script>

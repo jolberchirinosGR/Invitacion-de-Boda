@@ -75,7 +75,6 @@ class FileController extends Controller
 
             $item->storeAs('public'.$urlFolder, $name);
 
-            $user = User::where('email', $request->email)->first();
             $fileSizeInBytes = $item->getSize(); // Obtiene el tamaño del archivo en bytes
             $fileSizeInMB = round($fileSizeInBytes / 1024 / 1024, 2); // Convertir a MB y redondear a 2 decimales
 

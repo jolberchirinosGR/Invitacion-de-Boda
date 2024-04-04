@@ -134,7 +134,7 @@
                                             </span>
                                         </th>
                                         <th @click="sortBy('confirm')">
-                                            Asis.
+                                            Confirmado
                                             <span v-if="orderByColumn === 'confirm'">
                                                 <i v-if="orderByType === 'asc'" class="fas fa-arrow-up"></i>
                                                 <i v-else-if="orderByType === 'desc'" class="fas fa-arrow-down"></i>

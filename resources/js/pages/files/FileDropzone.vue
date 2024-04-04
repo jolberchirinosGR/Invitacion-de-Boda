@@ -11,7 +11,7 @@
             <br>
             <button id="submit-files-button" type="button" class="btn btn-success mx-2">
                 <i class="fas fa-save"></i>
-                Subir archivos
+                Cargar archivos
             </button>
         </div>
     </div>   

@@ -2,7 +2,7 @@
     <tr>
       <td>{{ userData.name }}</td>
       <td>{{ userData.phone }}</td>
-      <td> <i :class="getIconConfirm(userData.confirm)" :style="getIconColor(userData.confirm)"></i> </td>      
+      <td class="text-center"> <i :class="getIconConfirm(userData.confirm)" :style="getIconColor(userData.confirm)"></i> </td>      
       <td>{{ getRoleName(userData.id_role) }}</td>
       <td>
         <div class="d-flex justify-content-center">

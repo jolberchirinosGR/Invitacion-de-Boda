@@ -15,6 +15,8 @@ Route::get('/', ApplicationController::class)->where('view', '(.*)');
     Route::delete('/web/users/{user}', [UserController::class, 'destory']);
     Route::get('/web/users_unpaged', [UserController::class, 'index_unpaged']);
     Route::get('/web/users_unpaged_name', [UserController::class, 'index_unpaged_name']);
+    Route::get('/web/users/change_status/{user}', [UserController::class, 'change_status']);
+
     Route::get('/web/roles', [UserController::class, 'getRoles']);
 
     //Resources

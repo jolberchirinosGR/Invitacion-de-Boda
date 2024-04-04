@@ -28,11 +28,6 @@ class UserController extends Controller
             $query->where('name', 'like', "%{$nameQuery}%");
         }
 
-        if ($request->has('email')) {
-            $emailQuery = $request->input('email');
-            $query->where('email', 'like', "%{$emailQuery}%");
-        }
-
         if ($request->has('date')) {
             $dateQuery = $request->input('date');
             $query->whereDate('created_at', $dateQuery);
@@ -141,5 +136,19 @@ class UserController extends Controller
     public function getRoles()
     {
         return Role::orderBy('name', 'asc')->get();
+    }
+
+    /**
+     * Cambiar el estado de confirmado
+     */
+    public function change_status($id)
+    {
+        $update = User::find($id);
+
+        $update->confirm = $update->confirm  === 0 ? 1 : 0; //Cambia al opuesto que esta en BD de 1 a 0 y de 0 a 1
+                
+        $update->save();
+
+        return $update;
     }
 }

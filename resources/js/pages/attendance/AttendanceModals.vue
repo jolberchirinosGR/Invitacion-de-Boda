@@ -14,7 +14,7 @@
                     </button>
                 </div>
                     <div class="modal-body">
-                        <label for="user">Nomre y Apellido</label>
+                        <label for="user">Nombre y Apellido</label>
                         <div class="input-group">
                             <input v-model="selectedUser"                       
                                 @focus="inputFocusedUser"
@@ -23,7 +23,7 @@
                                 type="text" 
                                 class="form-control" 
                                 id="user" 
-                                placeholder="Seleccionar Usuario" 
+                                placeholder="Buscar invitado" 
                                 autocomplete="off">
                         </div>
                         <ul :class="{'autocomplete-results': true, 'show-results': isInputFocusedUser}" class="autocomplete-results" required>
@@ -34,19 +34,14 @@
                     </div>
 
                     <div class="table-responsive">
-                            <table class="table">
-                                <tbody>
-                                    <AttendanceListItem v-for="(respon, index) in resposablesResults"
-                                        :key="respon.id"
-                                        :responsable=respon
-                                    />
-                                </tbody>
-                            </table>
-                        </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i> Cancelar</button>
-                        <button @click="saveUser()" type="submit" class="btn" style="background-color: goldenrod; color: white;"><i class="fas fa-save"></i> Guardar</button>
+                        <table class="table">
+                            <tbody>
+                                <AttendanceListItem v-for="(respon, index) in responsablesResults"
+                                    :key="respon.id"
+                                    :user=respon
+                                />
+                            </tbody>
+                        </table>
                     </div>
             </div>
         </div>
@@ -89,42 +84,27 @@ export default {
       selectedUser: null,
       isInputFocusedUser: false,
       userResults: [],
-      resposablesResults: [],
+      responsablesResults: [],
     };
   },
   methods: {
-    // Limpiar formulario
-        clearForm() {
-            this.user = {
-                name: '',
-                phone: '',
-                confirm: '',
-                id_role: '',
-                id_responsable: '',
-            };
-            this.update = false;
-        },
-
     //Abrir model de editar o crear usuario
         openFormModal() {
+            this.responsablesResults = [];
+            this.selectedUser = null;
+
             $('#modal').modal('show');
         },
         
-    //Cerrar modal de editar o crear usuario
-        closeFormModal() {
-            this.clearForm();
-            $('#modal').modal('hide');
-        },
-
     //Selecionnar otro usuario
         selectUserName(user) {
-            this.responsablesData(user.responsables); //Imprimir los demas invitados
-
             if (user === null) {
                 this.selectedNameUser = null;
                 this.selectedUserId = null; 
                 this.selectedUser = null;
             }else{
+                this.responsablesData(user); //Imprimir los demas invitados
+
                 this.selectedUser = user.name; // Muestra el nombre del servidor en el input
                 this.selectedUserId = user.id; // Guarda el ID de la empresa
                 this.userResults = []; // Limpia los resultados
@@ -132,11 +112,16 @@ export default {
         },
 
     //Obtener el resto de invitados
-        responsablesData(invitados) {
-            if (invitados.length) {
-                this.resposablesResults = invitados;
-                console.log(this.resposablesResults)
+        responsablesData(user) {
+            this.responsablesResults = [];
+
+            //Compruebo si tiene invitados si lo tiene modifica su estado
+            if (user.responsables.length) {
+                this.responsablesResults = user.responsables;
             }
+
+            //Agrego al invitado actual al listado
+            this.responsablesResults.push(user);
         },
 
     //Obtener todos los nombres del personal
