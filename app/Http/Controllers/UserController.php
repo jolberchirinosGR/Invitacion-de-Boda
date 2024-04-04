@@ -7,6 +7,7 @@ use App\Http\Requests\UserRequest;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -144,11 +145,16 @@ class UserController extends Controller
     public function change_status($id)
     {
         $update = User::find($id);
-
         $update->confirm = $update->confirm  === 0 ? 1 : 0; //Cambia al opuesto que esta en BD de 1 a 0 y de 0 a 1
-                
         $update->save();
 
+        $this->sendMessage($update);
+
         return $update;
+    }
+
+    public function sendMessage($update)
+    {
+
     }
 }
