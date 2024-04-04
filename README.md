@@ -9,7 +9,7 @@ Todo esto desarrollado con Laravel y Vue, tablas y migraciones, (Sin inicio de s
 ### Dependencias del BACKEND
 
 <pre><div class="dark bg-gray-950 rounded-md"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md">
-<span class="" data-state="closed"></span></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash">composer install</span></div></div></pre>
+</div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash">composer install</span></div></div></pre>
 
 ### Dependencias del FRONTEND
 
@@ -39,9 +39,9 @@ Todo esto desarrollado con Laravel y Vue, tablas y migraciones, (Sin inicio de s
 
 ### Configuración de Almacenamiento Público
 
-Crea la carpeta `Public` en `storage/app/public` y establece el enlace simbólico.
+Crea la carpeta `Public` en `storage/app/` y establece el enlace simbólico.
 
-<pre><div class="dark bg-gray-950 rounded-md"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span class="" data-state="closed"></span></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash">mkdir -p storage/app/public/Public
+<pre><div class="dark bg-gray-950 rounded-md"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span class="" data-state="closed"></span></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash">
 php artisan storage:link
 </code></div></div></pre>
 
