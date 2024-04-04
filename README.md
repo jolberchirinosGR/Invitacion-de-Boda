@@ -63,10 +63,7 @@ npm run build
 # php artisan serve --host 192.168.0.1
 </code></div></div></pre>
 
-### Iniciar Sesión
-
-Inicia sesión con tu usuario para comenzar a usar la aplicación.
 
 ## Capturas de Pantalla (opcional)
 
-Agrega algunas capturas de pantalla de tu aplicación para mostrar su aspecto y funcionalidades.
+Privado por ahora...
