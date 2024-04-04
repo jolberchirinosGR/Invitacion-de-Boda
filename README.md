@@ -8,18 +8,15 @@ Todo esto desarrollado con Laravel y Vue, tablas y migraciones, (Sin inicio de s
 
 ### Dependencias del BACKEND
 
-<pre>
-<div class="dark bg-gray-950 rounded-md"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md">
-<span class="" data-state="closed"></span></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash">
-composer install
-</span>
-</div>
-</div>
-</pre>
+<pre><div class="dark bg-gray-950 rounded-md"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md">
+<span class="" data-state="closed"></span></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash">composer install</span></div></div></pre>
 
 ### Dependencias del FRONTEND
 
-<pre><div class="dark bg-gray-950 rounded-md"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>bash</span><span class="" data-state="closed">></span></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash">npm install
+<pre>
+<div class="dark bg-gray-950 rounded-md"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md">
+<span class="" data-state="closed">
+</span></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash">npm install
 </code></div></div></pre>
 
 ### Configuración de la Base de Datos
@@ -29,19 +26,22 @@ composer install
 
 ### Generar Clave de la Aplicación
 
-<pre><div class="dark bg-gray-950 rounded-md"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>bash</span><span class="" data-state="closed">/div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash">php artisan key:generate
+<pre>
+<div class="dark bg-gray-950 rounded-md"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md">
+<span class="" data-state="closed">
+<div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash">php artisan key:generate
 </code></div></div></pre>
 
 ### Migración de la Base de Datos
 
-<pre><div class="dark bg-gray-950 rounded-md"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>bash</span><span class="" data-state="closed"></span></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash">php artisan migrate:fresh --seed
+<pre><div class="dark bg-gray-950 rounded-md"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span class="" data-state="closed"></span></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash">php artisan migrate:fresh --seed
 </code></div></div></pre>
 
 ### Configuración de Almacenamiento Público
 
 Crea la carpeta `Public` en `storage/app/public` y establece el enlace simbólico.
 
-<pre><div class="dark bg-gray-950 rounded-md"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>bash</span><span class="" data-state="closed"></span></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash">mkdir -p storage/app/public/Public
+<pre><div class="dark bg-gray-950 rounded-md"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span class="" data-state="closed"></span></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash">mkdir -p storage/app/public/Public
 php artisan storage:link
 </code></div></div></pre>
 
@@ -51,14 +51,14 @@ php artisan storage:link
 
 Ejecuta uno de los siguientes comandos según tu preferencia:
 
-<pre><div class="dark bg-gray-950 rounded-md"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>bash</span><span class="" data-state="closed"></span></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash">npm run dev
+<pre><div class="dark bg-gray-950 rounded-md"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span class="" data-state="closed"></span></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash">npm run dev
 # o
 npm run build
 </code></div></div></pre>
 
 ### Iniciar Servidor
 
-<pre><div class="dark bg-gray-950 rounded-md"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>bash</span><span class="" data-state="closed"></span></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash">php artisan serve
+<pre><div class="dark bg-gray-950 rounded-md"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span class="" data-state="closed"></span></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash">php artisan serve
 # Si deseas especificar el host, puedes hacerlo con el argumento --host
 # php artisan serve --host 192.168.0.1
 </code></div></div></pre>
