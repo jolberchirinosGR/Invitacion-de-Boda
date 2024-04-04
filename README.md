@@ -2,14 +2,20 @@
 
 Sistema de invitacion con detalles como Musica, animacaciones, galeria, confirmar asistencia, descripción del evento entre otras cosas. 
 
-Todo esto desarrollado con Laravel y Vue, tablas y migraciones, (Sin inicio de sesión ya que es un proyecto personal)
+Todo esto desarrollado con Laravel y Vue, tablas y migraciones, (Sin inicio de sesion ya que es un proyecto personal)
 
 ## Instalación
 
 ### Dependencias del BACKEND
 
-<pre><div class="dark bg-gray-950 rounded-md"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>bash</span><span class="" data-state="closed"></span></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash">composer install
-</code></div></div></pre>
+<pre>
+<div class="dark bg-gray-950 rounded-md"><div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md">
+<span class="" data-state="closed"></span></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash">
+composer install
+</span>
+</div>
+</div>
+</pre>
 
 ### Dependencias del FRONTEND
 
