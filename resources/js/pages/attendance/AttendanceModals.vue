@@ -105,6 +105,7 @@ export default {
         openArrivalModal() {
             this.responsablesResults = [];
             this.selectedUser = null;
+            this.type = 'Arrival';
             this.title = 'Confirmar llegada de los invitados al evento';
 
             $('#modal').modal('show');
