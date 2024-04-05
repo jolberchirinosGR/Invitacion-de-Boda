@@ -7,7 +7,7 @@
                     <div class="title-box">
                       <!-- Música -->
                       <audio controls="" autoplay="" class="mb-3">
-                        <!-- <source src="extras/MiBendicion.mp3" type="audio/mpeg"> -->
+                        <source src="extras/MiBendicion.mp3" type="audio/mpeg">
                       </audio>
         
                       <!-- Jolber & Javianny -->
@@ -416,10 +416,13 @@ export default {
     },
     methods: {
         startCountdown() {
-        var countDownDate = new Date("Aug 8, 2024 17:00:00").getTime();
+        var countDownDate = new Date("Aug 8, 2024 17:30:00").getTime();
 
-          var now = new Date().getTime();
-          var distance = countDownDate - now;
+          // var now = new Date().getTime();
+          var now = new Date().toLocaleString("en-US", { timeZone: "America/Caracas" });
+          var nowInVenezuela = new Date(now).getTime();
+
+          var distance = countDownDate - nowInVenezuela;
 
           var days = Math.floor(distance / (1000 * 60 * 60 * 24));
           var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
