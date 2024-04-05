@@ -71,6 +71,7 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
+        dirname(__DIR__) . '/public_html' => public_path(),
     ],
 
 ];

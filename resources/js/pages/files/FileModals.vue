@@ -81,8 +81,9 @@
                   </div>
                   <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i> Cancelar</button>
-                      <!-- <button v-if="isAdmin" @click="openMoveFileModal()" type="submit" class="btn btn-success"><i class="fas fas fa-project-diagram"></i> Mover</button> -->
-                      <!-- <button v-if="isAdmin" @click="updateFile()" type="submit" class="btn btn-info"><i class="fas fa-edit"></i> Renombrar</button> -->
+                      <!-- <button @click="openMoveFileModal()" type="submit" class="btn btn-success"><i class="fas fas fa-project-diagram"></i> Mover</button> -->
+                      <button @click="showDeleteConfirmation()" type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Eliminar</button>
+                      <!-- <button @click="updateFile()" type="submit" class="btn btn-info"><i class="fas fa-edit"></i> Renombrar</button> -->
                   </div>
               </div>
           </div>
