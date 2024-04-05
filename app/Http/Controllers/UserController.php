@@ -100,6 +100,7 @@ class UserController extends Controller
         $user = new User();
         $user->name = $request->name;
         $user->phone = $request->phone;
+        $user->arrival = $request->arrival;
         $user->confirm = $request->confirm;
         $user->id_role = $request->id_role;
         $user->id_responsable = $request->id_responsable;
@@ -115,6 +116,7 @@ class UserController extends Controller
 
         $update->name = $request->name;
         $update->phone = $request->phone;
+        $user->arrival = $request->arrival;
         $user->confirm = $request->confirm;
         $user->id_role = $request->id_role;
         $user->id_responsable = $request->id_responsable;
@@ -148,13 +150,24 @@ class UserController extends Controller
         $update->confirm = $update->confirm  === 0 ? 1 : 0; //Cambia al opuesto que esta en BD de 1 a 0 y de 0 a 1
         $update->save();
 
-        $this->sendMessage($update);
-
         return $update;
     }
 
-    public function sendMessage($update)
+    /**
+     * Cambiar la fecha de llegada al evento
+     */
+    public function change_arrival($id)
     {
+        $user = User::find($id);
 
+        if(!$user) {
+            return response()->json(['message' => 'Usuario no encontrado'], 404);
+        }
+    
+        $arrival_time_caracas = now()->setTimezone('America/Caracas');
+        $user->arrival = $arrival_time_caracas;
+        $user->save();
+
+        return $user;
     }
 }

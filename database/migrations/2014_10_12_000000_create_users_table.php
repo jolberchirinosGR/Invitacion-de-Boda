@@ -20,6 +20,8 @@ return new class extends Migration
             $table->boolean('confirm')->default(0)->nullable();
             $table->string('phone')->nullable();
 
+            $table->time('arrival')->nullable();
+
             $table->unsignedBigInteger('id_responsable')->nullable();
             $table->foreign('id_responsable')->references('id')->on('users');
 

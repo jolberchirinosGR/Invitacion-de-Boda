@@ -14,8 +14,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         //Permisos de usuarios
-        $admin = Role::factory()->create([
-            'name' => 'Admin',
+        $novios = Role::factory()->create([
+            'name' => 'Novios',
         ]);
         $inv = Role::factory()->create([
             'name' => 'Invitado',
@@ -23,16 +23,26 @@ class DatabaseSeeder extends Seeder
 
         //USUARIOS POR DEFECTO PRECARGADOS EN EL SISTEMA
         User::factory()->create([
+            'name' => 'Javianny Rojas',
+            'phone' => '+584245827911',
+            'confirm' => 1,
+            'arrival' => null,
+            'id_role' => $novios->id,
+        ]);
+        User::factory()->create([
             'name' => 'Jolber Chirinos',
-            'phone' => '+3462452488',
-            'id_role' => $admin->id,
+            'phone' => '+34622130388',
+            'confirm' => 1,
+            'arrival' => null,
+            'id_role' => $novios->id,
         ]);
 
         //USUARIOS POR DEFECTO PRECARGADOS EN EL SISTEMA
         $user = User::factory()->create([
             'name' => 'Invitado',
             'phone' => '+34622130388',
-            'confirm' => 1,
+            'confirm' => 0,
+            'arrival' => null,
             'id_role' => $inv->id,
         ]);
 
@@ -40,6 +50,8 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Aramando Casas',
             'phone' => '+34622130139',
+            'confirm' => 0,
+            'arrival' => null,
             'id_role' => $inv->id,
             'id_responsable' => $user->id,
         ]);
@@ -48,8 +60,9 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Juanito Alcachofa',
             'phone' => '+3462452488',
+            'confirm' => 0,
+            'arrival' => null,
             'id_role' => $inv->id,
-            'confirm' => 1,
             'id_responsable' => $user->id,
         ]);
     }

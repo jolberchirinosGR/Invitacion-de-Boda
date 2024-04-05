@@ -140,9 +140,9 @@
                                                 <i v-else-if="orderByType === 'desc'" class="fas fa-arrow-down"></i>
                                             </span>
                                         </th>
-                                        <th @click="sortBy('id_role')">
-                                            Rol
-                                            <span v-if="orderByColumn === 'id_role'">
+                                        <th @click="sortBy('arrival')">
+                                            Llegada
+                                            <span v-if="orderByColumn === 'arrival'">
                                                 <i v-if="orderByType === 'asc'" class="fas fa-arrow-up"></i>
                                                 <i v-else-if="orderByType === 'desc'" class="fas fa-arrow-down"></i>
                                             </span>
@@ -228,6 +228,7 @@ export default {
         id: '',
         name: '',
         phone: '',
+        arrival: '',
         confirm: '',
         id_responsable: '',
         id_role: '',
@@ -242,6 +243,7 @@ export default {
       //Filtros para el listado
       nameSearch: null,
       phoneSearch: null,
+      arrivalSearch: null,
       confirmSearch: null,
       dateSearch: null,
       roleSearch: null,
@@ -259,6 +261,7 @@ export default {
                 params: {
                     name: this.nameSearch,
                     phone: this.phoneSearch,
+                    arrival: this.arrivalSearch,
                     confirm: this.confirmSearch,
                     date: this.dateSearch,
                     role: this.roleSearch,
@@ -347,6 +350,9 @@ export default {
       this.getUsers();
     }, 300),
     phoneSearch: debounce(function () {
+      this.getUsers();
+    }, 300),
+    arrivalSearch: debounce(function () {
       this.getUsers();
     }, 300),
     confirmSearch: debounce(function () {

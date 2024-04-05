@@ -279,7 +279,7 @@
                 <div class="col-lg-12">
                   <div class="title-box">
                       <h2 style="font-size: 45px;">
-                        <img class="img-fluid rounded" style="width: 14%;" src="extras/calendar.png" alt="" />
+                        <img @click="arrivalConfirmModal" class="img-fluid rounded" style="width: 14%;" src="extras/calendar.png" alt="" />
               
                         <strong>          
                           Asistencia
@@ -295,7 +295,7 @@
 
               <div class="col-md-12" style="margin-top: 20px;">
                 <div class="submit-button text-center">
-                  <button @click="openModal" class="btn btn-secondary" style="background-color: goldenrod; border: none; border-radius: 50px; font-size: 20px;">
+                  <button @click="attendanceConfirmModal" class="btn btn-secondary" style="background-color: goldenrod; border: none; border-radius: 50px; font-size: 20px;">
                     <strong>
                       <i class="fas fa-check"></i>
                       Confirmar asistencia
@@ -443,8 +443,13 @@ export default {
       },
 
       // Método para abrir el modal de asistencia
-      openModal() {
+      attendanceConfirmModal() {
         this.$refs.attendanceModal.openFormModal(null);
+      },
+
+      // Método la llegada de los invitados
+      arrivalConfirmModal() {
+        this.$refs.attendanceModal.openArrivalModal(null);
       },
 
     }

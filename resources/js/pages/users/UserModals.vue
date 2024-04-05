@@ -31,6 +31,11 @@
                     </div>
 
                     <div class="modal-body">
+			       		<label for="arrival">Llegada al evento</label>
+			       		<input v-model="user.arrival" type="text" class="form-control" id="arrival" placeholder="Hora de llegada" name="" autocomplete="off" disabled>
+                    </div>
+
+                    <div class="modal-body">
                         <label for="user">Usuario</label>
                         <div class="input-group">
                             <input v-model="selectedUser"                       
@@ -79,6 +84,7 @@ export default {
         id: '',
         name: '',
         phone: '',
+        arrival: '',
         confirm: '',
         id_role: '',
         id_responsable: '',
@@ -106,6 +112,7 @@ export default {
             this.user = {
                 name: '',
                 phone: '',
+                arrival: '',
                 confirm: '',
                 id_role: '',
                 id_responsable: '',
@@ -120,6 +127,7 @@ export default {
 
                 this.user.name = '';
                 this.user.phone = '';
+                this.user.arrival = '';
                 this.user.confirm = '';
                 this.user.id_responsable = '';
                 this.user.id_role = '';
@@ -131,6 +139,7 @@ export default {
                 this.user.id = user.id ?? null;
                 this.user.name = user.name ?? null;
                 this.user.phone = user.phone ?? null;
+                this.user.arrival = user.arrival ?? null;
                 this.user.id_responsable = user.id_responsable ?? null;
                 this.user.id_role = user.id_role ?? null;
             }
@@ -196,6 +205,7 @@ export default {
             const data = {
                 name: this.user.name,
                 phone: this.user.phone,
+                arrival: this.user.arrival,
                 confirm: this.user.confirm,
                 id_role: this.user.id_role, // Enviar el ID del rol seleccionado
                 id_responsable: this.selectedUserId, // Enviar el ID del invitado seleccionado
@@ -219,6 +229,7 @@ export default {
                 id: userId,
                 name: this.user.name,
                 phone: this.user.phone,
+                arrival: this.user.arrival,
                 confirm: this.user.confirm,
                 id_role: this.user.id_role, // Enviar el ID del rol seleccionado
                 id_responsable: this.selectedUserId, // Enviar el ID del invitado seleccionado

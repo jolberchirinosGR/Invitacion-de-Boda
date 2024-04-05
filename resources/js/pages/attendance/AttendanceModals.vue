@@ -7,7 +7,7 @@
                 <div class="modal-header" style="background-color: goldenrod;">
                     <h5 class="modal-title" id="staticBackdropLabel">
                         <i class="fa fa-check-circle mr-1"></i> 
-                        Confirmar asistencia
+                        {{ title }}
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -39,6 +39,7 @@
                                 <AttendanceListItem v-for="(respon, index) in responsablesResults"
                                     :key="respon.id"
                                     :user=respon
+                                    :type=type
                                 />
                             </tbody>
                         </table>
@@ -65,6 +66,7 @@ export default {
         id: '',
         name: '',
         phone: '',
+        arrival: '',
         confirm: '',
         id_role: '',
         id_responsable: '',
@@ -77,7 +79,8 @@ export default {
       totalUsers: 0,
       //Filtros para el listado
       paginationNumber: 10,
-
+      type: null,
+      title:null,
       //Autocompleted user
       selectedNameUser: null, // Almacena el nombre seleccionado
       selectedUserId: null,
@@ -92,6 +95,17 @@ export default {
         openFormModal() {
             this.responsablesResults = [];
             this.selectedUser = null;
+            this.type = 'Attendance';
+            this.title = 'Confirmar asistencia al evento';
+
+            $('#modal').modal('show');
+        },
+
+    //Abrir model de editar o crear usuario
+        openArrivalModal() {
+            this.responsablesResults = [];
+            this.selectedUser = null;
+            this.title = 'Confirmar llegada de los invitados al evento';
 
             $('#modal').modal('show');
         },
@@ -181,7 +195,6 @@ export default {
     }
     
     .autocomplete-results li {
-        /* Estilos anteriores */
         border-bottom: 1px solid #eee; /* Línea separadora entre opciones */
     }
 
@@ -199,14 +212,12 @@ export default {
         z-index: 999;
         background-color: #fff;
         border: 1px solid #ccc;
-    /* Otros estilos que desees agregar */
     }
 
     .show-results {
         display: block;
     }
 
-    /* Nuevo estilo para ajustar el ancho */
     .autocomplete-results.show-results {
         width: calc(94% - 2px); /* Ten en cuenta el borde */
         margin-top: 2px; /* Ajuste para separación */

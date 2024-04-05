@@ -26,6 +26,7 @@ class UserRequest extends FormRequest
         $rules = [
             'name' => 'required|max:190',
             'phone' => 'required|max:250',
+            'arrival' => 'nullable|date',
             'confirm' => 'nullable|boolean',
             'id_role' => 'required|exists:roles,id',
             'id_responsable' => 'nullable|exists:users,id',
