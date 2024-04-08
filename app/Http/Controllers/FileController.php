@@ -71,9 +71,21 @@ class FileController extends Controller
             foreach ($folders as $key) {
                 $sub = Folder::where('id', $key['id'])->pluck('name')->first();
                 $urlFolder = $urlFolder . '/' . $sub;
+
+                // Crear la carpeta si no existe
+                $folderPath = storage_path('app/public' . $urlFolder);
+                if (!file_exists($folderPath)) {
+                    mkdir($folderPath, 0777, true); // Establecer permisos 777
+                } else {
+                    chmod($folderPath, 0777); // Asegurarse de que los permisos estén establecidos
+                }
             } //Obtener URL de carpetas es decir /xxx/asd/asdd
 
             $item->storeAs('public'.$urlFolder, $name);
+            
+            // Establecer permisos 777 al archivo recién creado
+            $filePath = storage_path('app/public' . $urlFolder . '/' . $name);
+            chmod($filePath, 0777);
 
             $fileSizeInBytes = $item->getSize(); // Obtiene el tamaño del archivo en bytes
             $fileSizeInMB = round($fileSizeInBytes / 1024 / 1024, 2); // Convertir a MB y redondear a 2 decimales

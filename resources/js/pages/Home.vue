@@ -16,12 +16,12 @@
 
                       <div class="col-lg-12">
                         <div class="title-box">
-                          <h2 style="font-size: 45px; margin-top: 20px;">
+                          <h2 style="font-size: 55px; margin-top: 20px;">
                               <strong>          
                                 ¡Nos casamos!
                               </strong>
                             </h2>
-                            <p style="font-size: 20px; color: gray;"> Nuestro amor ha escrito un nuevo capítulo y queremos que tú formes parte de nuestra historia Y que así compartas con nosotros uno de los momentos más importantes de nuestras vidas.</p>
+                            <p style="font-size: 20px; color: gray;"> Nuestro amor ha escrito un nuevo capítulo y queremos que tú formes parte de nuestra historia y que así compartas con nosotros uno de los momentos más importantes de nuestras vidas.</p>
                         </div>
                       </div>
                       
@@ -74,20 +74,19 @@
               Por favor, asegúrate de tomar las precauciones necesarias para garantizar un regreso seguro a casa después de la celebración..</p>
           </div>
           <!-- Fin de la cuenta regresiva y recalcar -->
+
           <!-- Start Gallery -->
           <div id="gallery" class="gallery-box">
             <div class="container-fluid">
               <div class="row">
-                <div class="col-lg-12">
-                  <div class="title-box">
-                      <h2 style="font-size: 45px;">
-                        <i class="fas fa-photo-video"></i>                
-                        <strong>          
-                          Galeria
-                        </strong>
-                      </h2>
-                      <p style="font-size: 20px; color: gray;"> Algunos de nuestro recuerdos antes de llegar a este gran día. </p>
-                  </div>
+                <div class="col-lg-12 text-center">
+                  <h2 style="font-size: 45px;">
+                    <img class="img-fluid" src="extras/imagen.png" style="width: 18%; transform: scaleX(-1);"/>
+                    <strong>          
+                      Galeria
+                    </strong>
+                  </h2>
+                  <p style="font-size: 20px; color: gray;"> Algunos de nuestro recuerdos antes de llegar a este gran día. </p>
                 </div>
               </div>
               <div class="row">
@@ -160,24 +159,23 @@
   
           <!-- Inicio Eventos -->
           <div id="events" class="events-box">
-            <div class="container">
+            <div class="container text-center">
               <div class="row">
                 <div class="col-lg-12">
-                  <div class="title-box">
-                      <h2 style="font-size: 45px;">
-                        <i class="fas fa-church"></i>   
-                        <strong>          
-                          Día del evento
-                        </strong>
-                      </h2>
-                      <p style="font-size: 20px; color: gray;"> 
-                        ¡Aquí encontrarás detalles importantes para el día del evento! Desde la ubicación hasta la vestimenta y otros aspectos esenciales que asegurarán una experiencia inolvidable para todos.
-                      </p>
-                  </div>
+                  <h2 style="font-size: 50px;">
+                    <strong>  
+                      <img class="img-fluid" src="extras/iglesia.png" style="width: 25%; transform: scaleX(-1);"/>     
+                      Evento
+                    </strong>
+                  </h2>
+                  <p style="font-size: 20px; color: gray;"> 
+                    ¡Aquí encontrarás detalles importantes para el día del evento! Desde la ubicación hasta la vestimenta y otros aspectos esenciales que asegurarán una experiencia inolvidable para todos.
+                  </p>
                 </div>
               </div>
         
-              <div class="row">
+              <div class="row" style="padding: 5%;">
+
                 <!-- Ubicacion del evento -->
                 <div class="col-lg-4 col-md-6 col-sm-12">
                   <div class="event-inner" style="background-color: white;">
@@ -185,7 +183,6 @@
                       <img class="img-fluid" src="extras/address.png" alt="" />
                     </div>
                     <h2>
-                      <i class="fas fa-map-marker-alt"></i>  
                       <strong>           
                         Ubicación del evento
                       </strong>            
@@ -193,7 +190,7 @@
                     <p>Este sitio ha sido elegido especialmente para compartir este hermoso momento con ustedes. Se encuentra ubicado en 3J6M+5HH, Av. La Salle, Barquisimeto 3001, Lara, Venezuela.</p>
                     <a  style="border: none; border-radius: 50px;"  href="https://maps.app.goo.gl/eTadwyrDFfQL7FyJA">
                       Ir a la dirección 
-                      <i class="fas fa-arrow-right"></i>            
+                      <i class="fas fa-map-marked-alt"></i>                   
                     </a>
                   </div>
                 </div>
@@ -206,7 +203,6 @@
                       <img class="img-fluid" src="extras/vestimentas.jpg" alt="" />
                     </div>
                     <h2>
-                      <i class="fas fa-tshirt"></i>   
                       <strong>           
                         Vestimenta
                       </strong>
@@ -231,9 +227,8 @@
                       <img class="img-fluid" src="extras/kids.png" alt="" />
                     </div>
                     <h2>
-                      <i class="fas fa-child"></i>       
                       <strong>           
-                        Niños
+                        Los pequeños de casa
                       </strong>
                     </h2>
                     <p>
@@ -253,7 +248,6 @@
                       <img class="img-fluid" src="extras/gitf.png" alt="" />
                     </div>
                     <h2>
-                      <i class="fas fa-gifts"></i>              
                       <strong>           
                         Recuerdos, no Regalos
                       </strong>
@@ -274,22 +268,21 @@
 
           <!-- Inicio de la asistencia -->
           <div id="gallery" class="gallery-box">
-            <div class="container-fluid">
+            <div class="container-fluid text-center">
               <div class="row">
                 <div class="col-lg-12">
-                  <div class="title-box">
-                      <h2 style="font-size: 45px;">
-                        <img @click="arrivalConfirmModal" class="img-fluid rounded" style="width: 14%;" src="extras/calendar.png" alt="" />
+                  <h2 style="font-size: 45px;">
+                    <img @click="arrivalConfirmModal" class="img-fluid rounded" style="width: 20%;" src="extras/calendario.png" alt="" />
               
-                        <strong>          
-                          Asistencia
-                        </strong>
-                      </h2>
-                        <p style="font-size: 20px; color: gray;"> Este momento es invaluable para nosotros y queremos celebrarlo de manera significativa, aunque nos encantaría tenerlos a todos aquí, circunstancias nos llevan a una boda más íntima. </p>
-                        <p style="font-size: 20px; color: gray;"> Al hacer clic abajo, nuestros invitados confirmarán su asistencia. Estamos emocionados de compartir este día especial de forma personal.</p>
-                        <br>
-                        <p style="font-size: 20px; color: gray;"> Apreciamos su comprensión y apoyo. Esta decisión no disminuye su importancia en nuestras vidas.</p>
-                  </div>
+                    <strong>          
+                      Asistencia
+                    </strong>
+                  </h2>
+
+                  <p style="font-size: 20px; color: gray;"> Este momento es invaluable para nosotros y queremos celebrarlo de manera significativa, aunque nos encantaría tenerlos a todos aquí, circunstancias nos llevan a una boda más íntima. </p>
+                  <p style="font-size: 20px; color: gray;"> Al hacer clic abajo, tendran buscador con nuestros invitados estos confirmarán su asistencia.</p>
+                  <br>
+                  <p style="font-size: 20px; color: gray;"> Apreciamos su comprensión y apoyo. Esta decisión no disminuye su importancia en nuestras vidas.</p>
                 </div>
               </div>
 
@@ -297,7 +290,6 @@
                 <div class="submit-button text-center">
                   <button @click="attendanceConfirmModal" class="btn btn-secondary" style="background-color: goldenrod; border: none; border-radius: 50px; font-size: 20px;">
                     <strong>
-                      <i class="fas fa-check"></i>
                       Confirmar asistencia
                       <i class="fas fa-check"></i>
                     </strong>
@@ -307,62 +299,54 @@
 
             </div>
           </div>
-          <!-- End Gallery -->
+          <!-- Fin de asistencia -->
 
+          <!-- Inicio de la  -->
+          <div id="gallery" class="gallery-box">
+            <div class="container-fluid text-center">
+              <div class="row">
+                <div class="col-lg-12">
+                    <div class="title-box">
+                      <h2 style="font-size: 45px;">
+                        <strong>
+                          ¡Esperamos poder contar contigo!
+                        </strong>
+                        <br>
+                        <img class="img-fluid" src="extras/baile.png" style="width: 25%; transform: scaleX(-1);"/>     
 
-          <!-- Contacto con los novios -->
-          <div id="contact" class="contact-box" style="margin-top: 20px;">
-              <div class="container">
-                  <div class="row">
-                      <div class="col-lg-12">
-                          <div class="title-box">
-                            <h2 style="font-size: 45px;">
-                              <strong>
-                                ¡Esperamos poder contar contigo!
-                              </strong>
-                            </h2>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                      <div class="row align-items-center about-main-info">
-                        <div class="col-lg-8 col-md-6 col-sm-12 text-center">
-                            <p> ¿No apareces en el listado de invitados?, ¿Tienes alguna inquietud?, ¿Duda? o Sugerencia. Aqui tienes los contactos para que te puedas comunicar con nosotros.</p>
-
-                            <div class="col-md-12" style="margin-bottom: 20px;">
-                              <div class="submit-button text-center">
-                                <a href="https://wa.me/34622130388" class="btn" style="border: 2px solid goldenrod; border-radius: 50px; font-size: 20px;">
-                                  <strong>
-                                    <i class="fas fa-mobile-alt"></i>                                
-                                    Jolber Chirinos
-                                    <img class="img-fluid" src="extras/novio.png" style="width: 10%;"/>
-                                  </strong>
-                                </a>
-                              </div>
-                            </div>
-
-                            <div class="col-md-12" style="margin-bottom: 20px;">
-                              <div class="submit-button text-center">
-                                <a href="https://wa.me/584245827911" class="btn" style="border: 2px solid goldenrod; border-radius: 50px; font-size: 20px;">
-                                  <strong>
-                                    <i class="fas fa-mobile-alt"></i>                                
-                                    Javianny Rojas
-                                    <img class="img-fluid" src="extras/novia.png" style="width: 10%;"/>
-                                  </strong>
-                                </a>
-                              </div>
-                            </div>
-
-                        </div>
-                      </div>
+                      </h2>
                     </div>
-                  </div>
+                </div>
               </div>
+
+              <p style="font-size: 20px; color: gray;"> ¿No apareces en el listado de invitados?, ¿Tienes alguna inquietud?, ¿Duda? o Sugerencia. Aqui tienes los contactos para que te puedas comunicar con nosotros.</p>
+
+              <div class="col-md-12" style="margin-top: 20px;">
+                <div class="submit-button text-center">
+                    <div class="col-md-6" style="margin-bottom: 20px;">
+                        <a href="https://wa.me/34622130388" class="btn" style="background-color: goldenrod; color: white; border-radius: 50px; font-size: 20px;">
+                          <strong>
+                            Jolber Chirinos
+                            <img class="img-fluid" src="extras/novio.png" style="width: 10%;"/>
+                          </strong>
+                        </a>
+                    </div>
+
+                    <div class="col-md-6" style="margin-bottom: 20px;">
+                        <a href="https://wa.me/584245827911" class="btn" style="background-color: goldenrod; color: white; border-radius: 50px; font-size: 20px;">
+                          <strong>
+                            Javianny Rojas
+                            <img class="img-fluid" src="extras/novia.png" style="width: 10%;"/>
+                          </strong>
+                        </a>
+                    </div>
+                </div>
+              </div>
+
+            </div>
           </div>
-          <!-- Fin Asistencia -->
-    
+          <!-- Fin de contacto -->
+
           <!-- Start Footer -->
           <footer class="footer-box">
             <div class="container">
