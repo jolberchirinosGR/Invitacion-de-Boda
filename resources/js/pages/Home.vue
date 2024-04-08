@@ -29,7 +29,7 @@
               <img style="width: 50%; margin-bottom: 10%;" src="extras/cups.gif">        
 
               <!--  Día del evento -->
-              <img class="img-fluid" src="extras/fecha.svg">
+              <img class="img-fluid" src="extras/fecha.svg" style="animation: heartbeat 5s infinite;"/>
             </div>
           </div>
         </div>
@@ -70,6 +70,36 @@
       Por favor, asegúrate de tomar las precauciones necesarias para garantizar un regreso seguro a casa después de la celebración..</p>
   </div>
   <!-- Fin de la cuenta regresiva y recalcar -->
+
+  <!-- Inicio de versiculo  -->
+  <div class="container-fluid text-center" style="margin-top: 10%;">
+    <div class="row">
+      <div class="col-lg-12">
+          <div class="title-box">
+
+            <div class="row" style="padding: 5%;">
+              <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="event-inner" style="background-color: white;">
+                  <h2 style="font-size: 30px;">
+                    <strong>           
+                      Mateo 19:5-6
+                    </strong>            
+                  </h2>
+                  <p style="font-size: 20px;">
+                    "Y dijo: Por tanto, el hombre dejará a su padre y a su madre, y ase unirá a su esposa, y los dos serán una sola carne?
+                    <br>
+                    Así que, no son ya más dos, sino una sola carne; por tanto, lo que Dios ha unido, no lo separe el hombre."
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+      </div>
+    </div>
+  </div>  
+  <!-- Fin de versiculo -->
+
 
   <!-- Start Gallery -->
   <div id="gallery" class="gallery-box">
@@ -305,7 +335,7 @@
   </div>
   <!-- Fin de asistencia -->
 
-  <!-- Inicio de la  -->
+  <!-- Inicio de Contacto  -->
   <div id="gallery" class="gallery-box">
     <div class="container-fluid text-center">
       <div class="row">
@@ -369,8 +399,6 @@
 
 
 <script>
-import axios from 'axios';
-import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import AttendanceModals from './attendance/AttendanceModals.vue';
 
