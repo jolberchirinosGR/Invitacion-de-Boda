@@ -11,7 +11,7 @@
               </audio>
 
               <!-- Jolber & Javianny -->
-              <img class="img-fluid rounded" src="logo.png" alt="" />
+              <img class="img-fluid rounded" src="logo.png" alt="" style="animation: heartbeat 4.5s infinite;"/>
               <br>
 
               <div class="col-lg-12">
@@ -140,7 +140,7 @@
 
       <div class="col-md-12" style="margin-top: 20px;">
         <div class="submit-button text-center">
-          <button @click="uploadImages" class="btn btn-secondary" style="background-color: goldenrod; border: none; border-radius: 50px; font-size: 20px;">
+          <button @click="uploadImages" class="btn btn-secondary" style="background-color: goldenrod; border: none; border-radius: 50px; font-size: 20px; animation: shake 3.5s infinite;">
             <strong>
               Comparte tus fotos con nosotros.
               <i class="fas fa-camera-retro"></i>                    
@@ -184,7 +184,7 @@
               </strong>            
             </h2>
             <p>Este sitio ha sido elegido especialmente para compartir este hermoso momento con ustedes. Se encuentra ubicado en 3J6M+5HH, Av. La Salle, Barquisimeto 3001, Lara, Venezuela.</p>
-            <a  style="border: none; border-radius: 50px;"  href="https://maps.app.goo.gl/eTadwyrDFfQL7FyJA">
+            <a href="https://maps.app.goo.gl/eTadwyrDFfQL7FyJA" style="border: none; border-radius: 50px; animation: heartbeat 2.5s infinite;">
               Ir a la dirección 
               <i class="fas fa-map-marked-alt"></i>                   
             </a>
@@ -210,8 +210,10 @@
 
             <p>Tienes una paleta de colores para escoger tu mejor outfit, pero hemos excluido el color <strong>"Blanco"</strong> ya que es reservado para la novia.</p>
 
-            <i class="fas fa-circle" style="color: white; font-size: 40px; border: 1px solid black; border-radius: 50px;"></i>
-            <i class="fas fa-ban" style="color: red; font-size: 40px;"></i>
+            <div style="border: none; border-radius: 50px; animation: heartbeat 2.5s infinite;">
+              <i class="fas fa-circle" style="color: white; font-size: 40px; border: 1px solid black; border-radius: 50px;"></i>
+              <i class="fas fa-ban" style="color: red; font-size: 40px;"></i>
+            </div>
           </div>
         </div>
         <!-- Fin Vestimenta del evento -->
@@ -231,8 +233,11 @@
               <strong>¡Prepárense para una noche Épica!</strong>
               Este evento está pensado para adultos, por lo que les pedimos amablemente que hagan los arreglos necesarios para dejar a los niños en casa. Queremos que todos disfruten de esta noche especial sin ninguna restricción. 
             </p>
-            <i class="fas fa-baby" style="font-size: 40px;"></i>       
-            <i class="fas fa-home" style="font-size: 40px;"></i>
+
+            <div style="border: none; border-radius: 50px; animation: heartbeat 2.5s infinite;">
+              <i class="fas fa-baby" style="font-size: 40px;"></i>       
+              <i class="fas fa-home" style="font-size: 40px;"></i>
+            </div>
           </div>
         </div>
         <!-- Fin Niños en el evento -->
@@ -250,8 +255,11 @@
             </h2>
             <p>Estamos encantados de compartir un día lleno de amor en nuestra boda contigo. Queremos enfocarnos en el placer de tu compañía y los preciosos recuerdos que crearemos juntos. Por ello, te pedimos gentilmente que en lugar de regalos, nos acompañes con tu calidez y alegría.</p>
             <p>Valoramos tu presencia más que cualquier obsequio material. Si deseas expresar tu cariño de alguna manera, sugerimos una carta, una foto o cualquier otro detalle que represente nuestra amistad y la conexión que compartimos.</p>
-            <i class="fas fa-gifts" style="font-size: 40px;"></i>
-            <i class="fas fa-ban" style="color: red; font-size: 40px;"></i>
+
+            <div style="border: none; border-radius: 50px; animation: heartbeat 2.5s infinite;">
+              <i class="fas fa-gifts" style="font-size: 40px;"></i>
+              <i class="fas fa-ban" style="color: red; font-size: 40px;"></i>
+            </div>
           </div>
         </div>
         <!-- Fin de regalos -->
@@ -284,7 +292,7 @@
 
       <div class="col-md-12" style="margin-top: 20px;">
         <div class="submit-button text-center">
-          <button @click="attendanceConfirmModal" class="btn btn-secondary" style="background-color: goldenrod; border: none; border-radius: 50px; font-size: 20px;">
+          <button @click="attendanceConfirmModal" class="btn btn-secondary" style="background-color: goldenrod; border: none; border-radius: 50px; font-size: 20px; animation: shake 3.5s infinite;">
             <strong>
               Confirmar asistencia
               <i class="fas fa-check"></i>
@@ -534,5 +542,20 @@ export default {
     .input_pass:focus {
     	box-shadow: none !important;
     	outline: 0px !important;
+    }
+
+    @keyframes heartbeat {
+        0% {transform: scale(1);}
+        25% {transform: scale(1.1);}
+        50% {transform: scale(1);}
+        75% {transform: scale(1.1);}
+        100% {transform: scale(1);}
+    }
+
+    @keyframes shake {
+        0%, 100% { transform: translate(0, 0) rotate(0); }
+        25% { transform: translate(-3px, -3px) rotate(-3deg); }
+        50% { transform: translate(3px, 3px) rotate(3deg); }
+        75% { transform: translate(-3px, -3px) rotate(-3deg); }
     }
 </style>
