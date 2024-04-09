@@ -11,7 +11,7 @@
               </audio>
 
               <!-- Jolber & Javianny -->
-              <img class="img-fluid rounded" src="logo.png" alt="" style="animation: heartbeat 3.5s infinite;"/>    
+              <img class="img-fluid rounded" src="logo.png" alt=""/>    
               <br>
 
               <div class="col-lg-12">
@@ -26,10 +26,10 @@
               </div>
               
               <!-- Gif de copitas -->
-              <img style="width: 50%; margin-bottom: 10%;" src="extras/cups.gif">        
+              <img style="width: 50%; margin-bottom: 10%;" src="extras/cups.webp">        
 
               <!--  Día del evento -->
-              <img class="img-fluid" src="extras/fecha.svg"/>
+              <img class="img-fluid" src="extras/fecha.webp"/>
             </div>
           </div>
         </div>
@@ -84,7 +84,7 @@
                     <strong>           
                       Mateo 19:5-6
                     </strong>   
-                    <img class="img-fluid" src="extras/biblia.png" style="width: 18%;"/>         
+                    <img class="img-fluid" src="extras/biblia.webp" style="width: 18%;"/>         
                   </h2>
                   <p style="font-size: 20px;">
                     "Y dijo: Por tanto, el hombre dejará a su padre y a su madre, y ase unirá a su esposa, y los dos serán una sola carne?
@@ -108,7 +108,7 @@
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2 style="font-size: 45px;">
-            <img class="img-fluid" src="extras/imagen.png" style="width: 18%; transform: scaleX(-1);"/>
+            <img class="img-fluid" src="extras/imagen.webp" style="width: 18%; transform: scaleX(-1);"/>
             <strong>          
               Galeria
             </strong>
@@ -191,7 +191,7 @@
         <div class="col-lg-12">
           <h2 style="font-size: 50px;">
             <strong>  
-              <img class="img-fluid" src="extras/iglesia.png" style="width: 25%; transform: scaleX(-1);"/>     
+              <img class="img-fluid" src="extras/iglesia.webp" style="width: 25%; transform: scaleX(-1);"/>     
               Evento
             </strong>
           </h2>
@@ -207,7 +207,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12">
           <div class="event-inner" style="background-color: white;">
             <div class="event-img">
-              <img class="img-fluid" src="extras/address.png" alt="" />
+              <img class="img-fluid" src="extras/address.webp" alt="" />
             </div>
             <h2>
               <strong>           
@@ -227,7 +227,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12">
           <div class="event-inner" style="background-color: white;">
             <div class="event-img">
-              <img class="img-fluid" src="extras/vestimentas.jpg" alt="" />
+              <img class="img-fluid" src="extras/vestimentas.webp" alt="" />
             </div>
             <h2>
               <strong>           
@@ -253,7 +253,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12">
           <div class="event-inner" style="background-color: white;">
             <div class="event-img">
-              <img class="img-fluid" src="extras/kids.png" alt="" />
+              <img class="img-fluid" src="extras/kids.webp" alt="" />
             </div>
             <h2>
               <strong>           
@@ -277,7 +277,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12">
           <div class="event-inner" style="background-color: white;">
             <div class="event-img">
-              <img class="img-fluid" src="extras/gitf.png" alt="" />
+              <img class="img-fluid" src="extras/gitf.webp" alt="" />
             </div>
             <h2>
               <strong>           
@@ -307,7 +307,7 @@
       <div class="row">
         <div class="col-lg-12">
           <h2 style="font-size: 45px;">
-            <img @click="arrivalConfirmModal" class="img-fluid rounded" style="width: 20%;" src="extras/calendario.png" alt="" />
+            <img @click="arrivalConfirmModal" class="img-fluid rounded" style="width: 20%;" src="extras/calendario.webp" alt="" />
       
             <strong>          
               Asistencia
@@ -326,7 +326,7 @@
           <button @click="attendanceConfirmModal" class="btn btn-secondary" style="background-color: goldenrod; border: none; border-radius: 50px; font-size: 20px;">
             <strong>
               Confirmar asistencia
-              <i class="fas fa-check"></i>
+              <img @click="arrivalConfirmModal" class="img-fluid rounded" style="width: 15%;" src="extras/asistencia.webp" alt="" />
             </strong>
           </button>
         </div>
@@ -347,7 +347,7 @@
                   ¡Esperamos poder contar contigo!
                 </strong>
                 <br>
-                <img class="img-fluid" src="extras/baile.png" style="width: 25%; transform: scaleX(-1); animation: shake 2.5s infinite;"/>     
+                <img class="img-fluid" src="extras/baile.webp" style="width: 25%; transform: scaleX(-1);"/>     
               </h2>
             </div>
         </div>
@@ -361,7 +361,7 @@
                 <a href="https://wa.me/34622130388" class="btn" style="background-color: goldenrod; color: white; border-radius: 50px; font-size: 20px;">
                   <strong>
                     Jolber Chirinos
-                    <img class="img-fluid" src="extras/novio.png" style="width: 10%;"/>
+                    <img class="img-fluid" src="extras/novio.webp" style="width: 10%;"/>
                   </strong>
                 </a>
             </div>
@@ -370,7 +370,7 @@
                 <a href="https://wa.me/584245827911" class="btn" style="background-color: goldenrod; color: white; border-radius: 50px; font-size: 20px;">
                   <strong>
                     Javianny Rojas
-                    <img class="img-fluid" src="extras/novia.png" style="width: 10%;"/>
+                    <img class="img-fluid" src="extras/novia.webp" style="width: 10%;"/>
                   </strong>
                 </a>
             </div>
@@ -570,30 +570,5 @@ export default {
     .input_pass:focus {
     	box-shadow: none !important;
     	outline: 0px !important;
-    }
-
-    @keyframes shake {
-        0%, 100% { transform: translate(0, 0) rotate(0); }
-        25% { transform: translate(-2px, -2px) rotate(-2deg); }
-        50% { transform: translate(2px, 2px) rotate(2deg); }
-        75% { transform: translate(-2px, -2px) rotate(-2deg); }
-    }
-
-    @keyframes heartbeat {
-        0% {
-            transform: scale(1);
-        }
-        25% {
-            transform: scale(1.1);
-        }
-        50% {
-            transform: scale(1);
-        }
-        75% {
-            transform: scale(1.1);
-        }
-        100% {
-            transform: scale(1);
-        }
     }
 </style>
