@@ -88,8 +88,8 @@
                   </h2>
                   <p style="font-size: 20px;">
                     "Él, respondiendo, les dijo: ¿No habéis leído que el que los hizo al principio, varón y hembra los hizo, 
-                    y dijo: Por tanto, el hombre dejará a su padre y a su madre, y ase unirá a su esposa, y los dos serán una sola carne?
-                    Así que, no son ya más dos, sino una sola carne; por tanto, lo que Dios ha unido, no lo separe el hombre."
+                    y dijo: Por esto el hombre dejará padre y madre, y se unirá a su mujer, y los dos serán una sola carne? 
+                    Así que no son ya más dos, sino una sola carne; por tanto, lo que Dios juntó, no lo separe el hombre."
                   </p>
                 </div>
               </div>
@@ -163,6 +163,30 @@
           <li>
             <a href="extras/gallery/gallery-08.jpg">
               <img class="img-fluid" src="extras/gallery/gallery-08.jpg" alt="single image">
+              <span class="overlay"><i class="fa fa-eye" aria-hidden="true"></i></span>
+            </a>
+          </li>
+          <li>
+            <a href="extras/gallery/gallery-06.jpg">
+              <img class="img-fluid" src="extras/gallery/gallery-06.jpg" alt="single image">
+              <span class="overlay"><i class="fa fa-eye" aria-hidden="true"></i></span>
+            </a>
+          </li>
+          <li>
+            <a href="extras/gallery/gallery-07.jpg">
+              <img class="img-fluid" src="extras/gallery/gallery-07.jpg" alt="single image">
+              <span class="overlay"><i class="fa fa-eye" aria-hidden="true"></i></span>
+            </a>
+          </li>
+          <li>
+            <a href="extras/gallery/gallery-08.jpg">
+              <img class="img-fluid" src="extras/gallery/gallery-08.jpg" alt="single image">
+              <span class="overlay"><i class="fa fa-eye" aria-hidden="true"></i></span>
+            </a>
+          </li>
+          <li>
+            <a href="extras/gallery/gallery-02.jpg">
+              <img class="img-fluid" src="extras/gallery/gallery-02.jpg" alt="single image">
               <span class="overlay"><i class="fa fa-eye" aria-hidden="true"></i></span>
             </a>
           </li>
@@ -347,7 +371,7 @@
                   ¡Esperamos poder contar contigo!
                 </strong>
                 <br>
-                <img class="img-fluid" src="extras/baile.webp" style="width: 25%; transform: scaleX(-1);"/>     
+                <img class="img-fluid shake-animation" src="extras/baile.webp" style="width: 25%; transform: scaleX(-1);"/>     
               </h2>
             </div>
         </div>
@@ -570,5 +594,17 @@ export default {
     .input_pass:focus {
     	box-shadow: none !important;
     	outline: 0px !important;
+    }
+
+    /* Animacion */
+    .shake-animation {
+      animation: shake 1.5s infinite; /* Aplicar la animación */
+      transform-origin: center; /* Establecer el origen de la transformación */
+    }
+
+    @keyframes shake {
+      0% { transform: rotate(0deg); } /* Primer paso de la animación */
+      50% { transform: rotate(15deg); } /* Segundo paso de la animación */
+      100% { transform: rotate(0deg); } /* Tercer paso de la animación */
     }
 </style>
