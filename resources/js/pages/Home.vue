@@ -82,13 +82,13 @@
                 <div class="event-inner" style="background-color: white;">
                   <h2 style="font-size: 30px;">
                     <strong>           
-                      Mateo 19:5-6
+                      Mateo 19:4-6
                     </strong>   
                     <img class="img-fluid" src="extras/biblia.webp" style="width: 18%;"/>         
                   </h2>
                   <p style="font-size: 20px;">
-                    "Y dijo: Por tanto, el hombre dejará a su padre y a su madre, y ase unirá a su esposa, y los dos serán una sola carne?
-                    <br>
+                    "Él, respondiendo, les dijo: ¿No habéis leído que el que los hizo al principio, varón y hembra los hizo, 
+                    y dijo: Por tanto, el hombre dejará a su padre y a su madre, y ase unirá a su esposa, y los dos serán una sola carne?
                     Así que, no son ya más dos, sino una sola carne; por tanto, lo que Dios ha unido, no lo separe el hombre."
                   </p>
                 </div>
@@ -119,51 +119,51 @@
       <div class="row">
         <ul class="popup-gallery clearfix">
           <li>
-            <a href="extras/gallery-01.jpg">
-              <img class="img-fluid" src="extras/gallery-01.jpg" alt="single image">
-              <span class="overlay"><i class="fa fa-heart-o" aria-hidden="true"></i></span>
+            <a href="extras/gallery/gallery-01.jpg">
+              <img class="img-fluid" src="extras/gallery/gallery-01.jpg" alt="single image">
+              <span class="overlay"><i class="fa fa-eye" aria-hidden="true"></i></span>
             </a>
           </li>
           <li>
-            <a href="extras/gallery-02.jpg">
-              <img class="img-fluid" src="extras/gallery-02.jpg" alt="single image">
-              <span class="overlay"><i class="fa fa-heart-o" aria-hidden="true"></i></span>
+            <a href="extras/gallery/gallery-02.jpg">
+              <img class="img-fluid" src="extras/gallery/gallery-02.jpg" alt="single image">
+              <span class="overlay"><i class="fa fa-eye" aria-hidden="true"></i></span>
             </a>
           </li>
           <li>
-            <a href="extras/gallery-03.jpg">
-              <img class="img-fluid" src="extras/gallery-03.jpg" alt="single image">
-              <span class="overlay"><i class="fa fa-heart-o" aria-hidden="true"></i></span>
+            <a href="extras/gallery/gallery-03.jpg">
+              <img class="img-fluid" src="extras/gallery/gallery-03.jpg" alt="single image">
+              <span class="overlay"><i class="fa fa-eye" aria-hidden="true"></i></span>
             </a>
           </li>
           <li>
-            <a href="extras/gallery-04.jpg">
-              <img class="img-fluid" src="extras/gallery-04.jpg" alt="single image">
-              <span class="overlay"><i class="fa fa-heart-o" aria-hidden="true"></i></span>
+            <a href="extras/gallery/gallery-04.jpg">
+              <img class="img-fluid" src="extras/gallery/gallery-04.jpg" alt="single image">
+              <span class="overlay"><i class="fa fa-eye" aria-hidden="true"></i></span>
             </a>
           </li>
           <li>
-            <a href="extras/gallery-05.jpg">
-              <img class="img-fluid" src="extras/gallery-05.jpg" alt="single image">
-              <span class="overlay"><i class="fa fa-heart-o" aria-hidden="true"></i></span>
+            <a href="extras/gallery/gallery-05.jpg">
+              <img class="img-fluid" src="extras/gallery/gallery-05.jpg" alt="single image">
+              <span class="overlay"><i class="fa fa-eye" aria-hidden="true"></i></span>
             </a>
           </li>
           <li>
-            <a href="extras/gallery-06.jpg">
-              <img class="img-fluid" src="extras/gallery-06.jpg" alt="single image">
-              <span class="overlay"><i class="fa fa-heart-o" aria-hidden="true"></i></span>
+            <a href="extras/gallery/gallery-06.jpg">
+              <img class="img-fluid" src="extras/gallery/gallery-06.jpg" alt="single image">
+              <span class="overlay"><i class="fa fa-eye" aria-hidden="true"></i></span>
             </a>
           </li>
           <li>
-            <a href="extras/gallery-07.jpg">
-              <img class="img-fluid" src="extras/gallery-07.jpg" alt="single image">
-              <span class="overlay"><i class="fa fa-heart-o" aria-hidden="true"></i></span>
+            <a href="extras/gallery/gallery-07.jpg">
+              <img class="img-fluid" src="extras/gallery/gallery-07.jpg" alt="single image">
+              <span class="overlay"><i class="fa fa-eye" aria-hidden="true"></i></span>
             </a>
           </li>
           <li>
-            <a href="extras/gallery-08.jpg">
-              <img class="img-fluid" src="extras/gallery-08.jpg" alt="single image">
-              <span class="overlay"><i class="fa fa-heart-o" aria-hidden="true"></i></span>
+            <a href="extras/gallery/gallery-08.jpg">
+              <img class="img-fluid" src="extras/gallery/gallery-08.jpg" alt="single image">
+              <span class="overlay"><i class="fa fa-eye" aria-hidden="true"></i></span>
             </a>
           </li>
         </ul>
@@ -207,7 +207,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12">
           <div class="event-inner" style="background-color: white;">
             <div class="event-img">
-              <img class="img-fluid" src="extras/address.webp" alt="" />
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d825.8606107805433!2d-69.36674412756116!3d10.059924285218573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e8766967bc9692d%3A0xf6b30e9d46c1c3cb!2sClub%20Social%20Sirio%20Venezolano!5e0!3m2!1ses!2ses!4v1712650512572!5m2!1ses!2ses" @click="" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             <h2>
               <strong>           
@@ -235,9 +235,9 @@
               </strong>
             </h2>
             <p>Estamos encantados compartir con ustedes un día lleno de amor en nuestra boda. Para que se sientan cómodos, les sugerimos vestir <strong>"SEMIFORMAL"</strong>, 
-              Queremos que luzcan elegantes, decorosos, comodos y a la vez que no sea una limitante para esta con nosotros.</p>
+              Queremos que luzcan elegantes, decorosos, cómodos y a la vez que no sea una limitante para estar con nosotros.</p>
 
-            <p>Les pedimos por favor que consideren la importancia de vestir de manera apropiada para esta ocasión tan especial, Mantengamos el estilo y la elegancia, ¡sin necesidad de mostrar más de lo necesario! </p>
+            <p>Les pedimos que consideren la importancia de vestir de manera apropiada para esta ocasión tan especial, Mantengamos el estilo y la elegancia, ¡sin necesidad de mostrar más de lo necesario! </p>
 
             <p>Tienes una paleta de colores para escoger tu mejor outfit, pero hemos excluido el color <strong>"Blanco"</strong> ya que es reservado para la novia.</p>
 
