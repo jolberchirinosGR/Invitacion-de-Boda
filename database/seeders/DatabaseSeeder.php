@@ -461,7 +461,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::factory()->create([
-            'name' => 'Leedy de Perez',
+            'name' => 'Leddy de Perez',
             'phone' => null,
             'confirm' => 0,
             'arrival' => null,

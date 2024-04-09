@@ -11,7 +11,7 @@
               </audio>
 
               <!-- Jolber & Javianny -->
-              <img class="img-fluid rounded" src="logo.png" alt="" style="animation: heartbeat 4.5s infinite;"/>
+              <img class="img-fluid rounded" src="logo.png" alt="" style="animation: heartbeat 3.5s infinite;"/>    
               <br>
 
               <div class="col-lg-12">
@@ -83,7 +83,8 @@
                   <h2 style="font-size: 30px;">
                     <strong>           
                       Mateo 19:5-6
-                    </strong>            
+                    </strong>   
+                    <img class="img-fluid" src="extras/biblia.png" style="width: 18%;"/>         
                   </h2>
                   <p style="font-size: 20px;">
                     "Y dijo: Por tanto, el hombre dejará a su padre y a su madre, y ase unirá a su esposa, y los dos serán una sola carne?
@@ -346,8 +347,7 @@
                   ¡Esperamos poder contar contigo!
                 </strong>
                 <br>
-                <img class="img-fluid" src="extras/baile.png" style="width: 25%; transform: scaleX(-1);"/>     
-
+                <img class="img-fluid" src="extras/baile.png" style="width: 25%; transform: scaleX(-1); animation: shake 2.5s infinite;"/>     
               </h2>
             </div>
         </div>
@@ -570,5 +570,30 @@ export default {
     .input_pass:focus {
     	box-shadow: none !important;
     	outline: 0px !important;
+    }
+
+    @keyframes shake {
+        0%, 100% { transform: translate(0, 0) rotate(0); }
+        25% { transform: translate(-2px, -2px) rotate(-2deg); }
+        50% { transform: translate(2px, 2px) rotate(2deg); }
+        75% { transform: translate(-2px, -2px) rotate(-2deg); }
+    }
+
+    @keyframes heartbeat {
+        0% {
+            transform: scale(1);
+        }
+        25% {
+            transform: scale(1.1);
+        }
+        50% {
+            transform: scale(1);
+        }
+        75% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+        }
     }
 </style>
