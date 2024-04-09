@@ -11,7 +11,7 @@
               </audio>
 
               <!-- Jolber & Javianny -->
-              <img class="img-fluid rounded" src="logo.png" alt=""/>    
+              <img class="img-fluid rounded" src="extras/logo.webp" alt=""/>    
               <br>
 
               <div class="col-lg-12">
